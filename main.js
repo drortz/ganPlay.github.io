@@ -287,7 +287,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 5
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n      <button id=\"backbutton\" type=\"button \" class=\"btn btn-outline-success\">הקודם</button>\n    </div>\n    <div class=\"col\">\n        <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-outline-success\">הבא</button>\n    </div>\n  </div>\n</div>\n<app-answer-feedback></app-answer-feedback>\n<app-image [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n\n"
+module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n      <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-outline-success\">הקודם</button>\n    </div>\n    <div class=\"col\">\n        <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-outline-success\">הבא</button>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4>כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback></app-answer-feedback>\n"
 
 /***/ }),
 
@@ -310,16 +310,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CountingComponent = /** @class */ (function () {
-    function CountingComponent(route, answerFeedbackService, router) {
+    function CountingComponent(route, answerFeedbackService, router, activeRoute) {
+        var _this = this;
         this.route = route;
         this.answerFeedbackService = answerFeedbackService;
         this.router = router;
+        this.activeRoute = activeRoute;
         this.pathParam = 'id';
         this.countingData = [];
+        activeRoute.params.subscribe(function (val) {
+            _this.idToDisplay = val.id;
+            _this.ngOnInit();
+        });
     }
     CountingComponent.prototype.ngOnInit = function () {
         this.loadMockDada();
-        this.idToDisplay = this.route.snapshot.paramMap.get(this.pathParam);
         this.loadCurrentPage();
     };
     CountingComponent.prototype.loadCurrentPage = function () {
@@ -336,32 +341,34 @@ var CountingComponent = /** @class */ (function () {
     };
     CountingComponent.prototype.onSelectedNumber = function (selectedNumber) {
         if (this.countingDataToDisplay.answer === selectedNumber) {
-            //good asnwer
+            // good asnwer
             this.answerFeedbackService.displayAnswerFeedback(true);
         }
         else {
-            //wrong answer
+            // wrong answer
             this.answerFeedbackService.displayAnswerFeedback(false);
         }
     };
     CountingComponent.prototype.loadMockDada = function () {
         this.countingData = [
-            { imageUrl: "https://extension.usu.edu/yardandgarden/ou-images/apples.png", answer: '2', id: '1' },
-            { imageUrl: "https://target.scene7.com/is/image/Target/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1?wid=488&hei=488&fmt=pjpeg", answer: '1', id: '2' },
-            { imageUrl: "http://ae01.alicdn.com/kf/HTB1JPz3ibZnBKNjSZFrq6yRLFXac/Ladybug-pen-drive-usb2-0-flash-drive-cartoon-cute-beetles-memory-stick-real-capacity-usb-flash.jpg_220x220q90.jpg", answer: '3', id: '3' }
+            { imageUrl: "https://extension.usu.edu/yardandgarden/ou-images/apples.png", answer: '2', subject: 'תפוחים', id: '1' },
+            { imageUrl: "https://target.scene7.com/is/image/Target/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1?wid=488&hei=488&fmt=pjpeg", answer: '1', subject: 'בננות', id: '2' },
+            { imageUrl: "http://ae01.alicdn.com/kf/HTB1JPz3ibZnBKNjSZFrq6yRLFXac/Ladybug-pen-drive-usb2-0-flash-drive-cartoon-cute-beetles-memory-stick-real-capacity-usb-flash.jpg_220x220q90.jpg", answer: '3', subject: 'חיפושיות', id: '3' }
         ];
     };
     CountingComponent.prototype.loadNextPage = function () {
-        var nextId = +this.idToDisplay + 1;
-        this.idToDisplay = String(nextId);
-        // this.router.navigate(['./counting/' + this.idToDisplay]);
-        // this.router.navigateByUrl('/home');
-        // this.router.navigateByUrl('/counting/' + this.idToDisplay);
+        if (+this.idToDisplay < +this.countingData.pop().id) {
+            var nextId = +this.idToDisplay + 1;
+            this.idToDisplay = String(nextId);
+            this.router.navigateByUrl('/counting/' + this.idToDisplay);
+        }
     };
-    CountingComponent.prototype.getNextPagePath = function () {
-        var nextId = +this.idToDisplay + 1;
-        this.idToDisplay = String(nextId);
-        return '/counting/' + this.idToDisplay;
+    CountingComponent.prototype.loadPrevPage = function () {
+        if (+this.idToDisplay > 1) {
+            var nextId = +this.idToDisplay - 1;
+            this.idToDisplay = String(nextId);
+            this.router.navigateByUrl('/counting/' + this.idToDisplay);
+        }
     };
     CountingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -371,7 +378,8 @@ var CountingComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
             _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__["AnswerFeedbackService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], CountingComponent);
     return CountingComponent;
 }());
@@ -387,7 +395,7 @@ var CountingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".imagesize{\r\n  height: 60%;\r\n  width: 60%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvaW1hZ2UvaW1hZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYW1lcy9jb3VudGluZy9pbWFnZS9pbWFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlc2l6ZXtcclxuICBoZWlnaHQ6IDYwJTtcclxuICB3aWR0aDogNjAlO1xyXG59XHJcbiJdfQ== */"
+module.exports = ".imagesize{\r\n  height: 50%;\r\n  width: 50%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvaW1hZ2UvaW1hZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYW1lcy9jb3VudGluZy9pbWFnZS9pbWFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlc2l6ZXtcclxuICBoZWlnaHQ6IDUwJTtcclxuICB3aWR0aDogNTAlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -634,7 +642,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink='/counting/1' routerLinkActive='Active'>ספירה</a>\n            </li>\n\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink='/counting/1' routerLinkActive='Active'>ספירה</a>\n          </li>\n\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
 
 /***/ }),
 
