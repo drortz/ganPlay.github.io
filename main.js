@@ -131,15 +131,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _letters_letters_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./letters/letters.component */ "./src/app/letters/letters.component.ts");
-/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
-/* harmony import */ var _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./games/counting/numbers/numbers.component */ "./src/app/games/counting/numbers/numbers.component.ts");
-/* harmony import */ var _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./games/counting/image/image.component */ "./src/app/games/counting/image/image.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _letters_letters_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./letters/letters.component */ "./src/app/letters/letters.component.ts");
+/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
+/* harmony import */ var _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./games/counting/numbers/numbers.component */ "./src/app/games/counting/numbers/numbers.component.ts");
+/* harmony import */ var _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./games/counting/image/image.component */ "./src/app/games/counting/image/image.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
+
 
 
 
@@ -158,21 +160,22 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_5__["NavBarComponent"],
-                _letters_letters_component__WEBPACK_IMPORTED_MODULE_6__["LettersComponent"],
-                _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_7__["CountingComponent"],
-                _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_8__["NumbersComponent"],
-                _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_9__["ImageComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_11__["AnswerFeedbackComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_6__["NavBarComponent"],
+                _letters_letters_component__WEBPACK_IMPORTED_MODULE_7__["LettersComponent"],
+                _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_8__["CountingComponent"],
+                _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_9__["NumbersComponent"],
+                _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__["ImageComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
+                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__["AnswerFeedbackComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -200,7 +203,7 @@ module.exports = ".adjustImageSize {\r\n  width: 50px;\r\n  height: 50px;\r\n}\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div dir='rtl' class=\"modal fade \" id=\"answerFeedback\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header justify-content-center\">\n        <h2 class=\"modal-title \" id=\"exampleModalLabel\">{{feedbackMessage}}</h2>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"text-center\">\n          <img src=\"{{imagePath}}\" class=\"rounded adjustImageSize\" >\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- Modal -->\n<div dir='rtl' class=\"modal fade \" id=\"answerFeedback\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header justify-content-center\">\n        <h2 class=\"modal-title \" id=\"exampleModalLabel\">{{feedbackMessage}}</h2>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"text-center\">\n          <img src=\"{{imagePath}}\" class=\"rounded adjustImageSize\" >\n        </div>\n      </div>\n      <div class=\"modal-footer justify-content-center\">\n          <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">סגור</button>\n        </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -287,7 +290,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 5
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n      <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-outline-success\">הקודם</button>\n    </div>\n    <div class=\"col\">\n        <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-outline-success\">הבא</button>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4>כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback></app-answer-feedback>\n"
+module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\"><button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button></p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\"><button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button></p>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n"
 
 /***/ }),
 
@@ -305,39 +308,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/http/counting.service */ "./src/app/services/http/counting.service.ts");
+
 
 
 
 
 var CountingComponent = /** @class */ (function () {
-    function CountingComponent(route, answerFeedbackService, router, activeRoute) {
+    function CountingComponent(route, answerFeedbackService, router, countingService, activeRoute) {
         var _this = this;
         this.route = route;
         this.answerFeedbackService = answerFeedbackService;
         this.router = router;
+        this.countingService = countingService;
         this.activeRoute = activeRoute;
         this.pathParam = 'id';
         this.countingData = [];
+        this.isLoaded = false;
         activeRoute.params.subscribe(function (val) {
             _this.idToDisplay = val.id;
             _this.ngOnInit();
         });
     }
     CountingComponent.prototype.ngOnInit = function () {
-        this.loadMockDada();
-        this.loadCurrentPage();
+        var _this = this;
+        if (this.countingData.length === 0) {
+            var serverResponse = void 0;
+            this.countingService.getCountingData().subscribe(function (value) {
+                console.log(value);
+                _this.setCountingData(value);
+                _this.loadCurrentPage();
+            });
+            // this.loadMockDada();
+        }
+        else {
+            this.loadCurrentPage();
+        }
+    };
+    CountingComponent.prototype.setCountingData = function (data) {
+        this.countingData = data;
     };
     CountingComponent.prototype.loadCurrentPage = function () {
-        for (var _i = 0, _a = this.countingData; _i < _a.length; _i++) {
-            var current = _a[_i];
-            if (current.id === this.idToDisplay) {
-                this.countingDataToDisplay = current;
-                break;
-            }
-        }
+        this.countingDataToDisplay = this.countingData[+this.idToDisplay - 1];
         if (this.countingDataToDisplay === undefined) {
-            this.countingDataToDisplay = this.countingData.pop();
+            this.countingDataToDisplay = this.countingData[this.countingData.length - 1];
         }
+        this.isLoaded = true;
     };
     CountingComponent.prototype.onSelectedNumber = function (selectedNumber) {
         if (this.countingDataToDisplay.answer === selectedNumber) {
@@ -356,19 +372,24 @@ var CountingComponent = /** @class */ (function () {
             { imageUrl: "http://ae01.alicdn.com/kf/HTB1JPz3ibZnBKNjSZFrq6yRLFXac/Ladybug-pen-drive-usb2-0-flash-drive-cartoon-cute-beetles-memory-stick-real-capacity-usb-flash.jpg_220x220q90.jpg", answer: '3', subject: 'חיפושיות', id: '3' }
         ];
     };
+    CountingComponent.prototype.isItTheLastPic = function () {
+        return this.idToDisplay === this.countingData[this.countingData.length - 1].id;
+    };
+    CountingComponent.prototype.isItTheFirstPic = function () {
+        return this.idToDisplay === '1';
+    };
     CountingComponent.prototype.loadNextPage = function () {
-        if (+this.idToDisplay < +this.countingData.pop().id) {
-            var nextId = +this.idToDisplay + 1;
-            this.idToDisplay = String(nextId);
-            this.router.navigateByUrl('/counting/' + this.idToDisplay);
-        }
+        var nextId = +this.idToDisplay + 1;
+        this.idToDisplay = String(nextId);
+        this.router.navigateByUrl('/counting/' + this.idToDisplay);
     };
     CountingComponent.prototype.loadPrevPage = function () {
-        if (+this.idToDisplay > 1) {
-            var nextId = +this.idToDisplay - 1;
-            this.idToDisplay = String(nextId);
-            this.router.navigateByUrl('/counting/' + this.idToDisplay);
-        }
+        var nextId = +this.idToDisplay - 1;
+        this.idToDisplay = String(nextId);
+        this.router.navigateByUrl('/counting/' + this.idToDisplay);
+    };
+    CountingComponent.prototype.disableBackButton = function () {
+        $('backbutton').button('toggle');
     };
     CountingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -379,6 +400,7 @@ var CountingComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
             _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__["AnswerFeedbackService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_4__["CountingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], CountingComponent);
     return CountingComponent;
@@ -466,7 +488,7 @@ module.exports = ".dynbamicfontsize{\r\n  font-size: 110px;\r\n}\r\n\r\n@media s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section bg-light\">\n    <div class=\"container pt-3 pb-2\" dir=\"rtl\" >\n        <div class=\"row\">\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('1')\" >1</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('2')\" >2</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('3')\">3</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('4')\">4</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\"  (click)=\"onNumberClick('5')\">5</button>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('6')\">6</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('7')\">7</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('8')\">8</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('9')\">9</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('10')\">10</button>\n            </div>\n          </div>\n      </div>\n\n</div>\n"
+module.exports = "<div class=\"section bg-light\">\n    <div class=\"container pt-3 pb-2\" dir=\"rtl\" >\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('1')\" >1</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('2')\" >2</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('3')\">3</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('4')\">4</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\"  (click)=\"onNumberClick('5')\">5</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('6')\">6</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('7')\">7</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('8')\">8</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('9')\">9</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('10')\">10</button>\n            </div>\n          </div>\n      </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -698,14 +720,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var AnswerFeedbackService = /** @class */ (function () {
     function AnswerFeedbackService() {
-        this.isAnswerCorrectSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.isAnswerCorrect = this.isAnswerCorrectSubject.asObservable();
+        this.isAnswerCorrectObs = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
     }
     AnswerFeedbackService.prototype.displayAnswerFeedback = function (isCorrect) {
-        this.isAnswerCorrectSubject.next(isCorrect);
+        this.isAnswerCorrectObs.next(isCorrect);
     };
     AnswerFeedbackService.prototype.getIsAnswerCorrectObs = function () {
-        return this.isAnswerCorrect;
+        return this.isAnswerCorrectObs;
     };
     AnswerFeedbackService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -714,6 +735,43 @@ var AnswerFeedbackService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AnswerFeedbackService);
     return AnswerFeedbackService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/http/counting.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/http/counting.service.ts ***!
+  \***************************************************/
+/*! exports provided: CountingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountingService", function() { return CountingService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var CountingService = /** @class */ (function () {
+    function CountingService(httpClient) {
+        this.httpClient = httpClient;
+        this.url = 'https://ganplay.appspot.com/CountingData';
+    }
+    CountingService.prototype.getCountingData = function () {
+        return this.httpClient.get(this.url);
+    };
+    CountingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], CountingService);
+    return CountingService;
 }());
 
 
