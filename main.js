@@ -141,6 +141,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./games/counting/image/image.component */ "./src/app/games/counting/image/image.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
+/* harmony import */ var _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./load-spinner/load-spinner.component */ "./src/app/load-spinner/load-spinner.component.ts");
+
 
 
 
@@ -167,7 +169,8 @@ var AppModule = /** @class */ (function () {
                 _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_9__["NumbersComponent"],
                 _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__["ImageComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
-                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__["AnswerFeedbackComponent"]
+                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__["AnswerFeedbackComponent"],
+                _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__["LoadSpinnerComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -290,7 +293,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 5
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\"><button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button></p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\"><button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button></p>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n"
+module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\"><button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button></p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\"><button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button></p>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n"
 
 /***/ }),
 
@@ -305,22 +308,25 @@ module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir=
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountingComponent", function() { return CountingComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/http/counting.service */ "./src/app/services/http/counting.service.ts");
+/* harmony import */ var _services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/load-spinner.service */ "./src/app/services/load-spinner.service.ts");
+/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/http/counting.service */ "./src/app/services/http/counting.service.ts");
+
 
 
 
 
 
 var CountingComponent = /** @class */ (function () {
-    function CountingComponent(route, answerFeedbackService, router, countingService, activeRoute) {
+    function CountingComponent(route, answerFeedbackService, router, countingService, loadSpinner, activeRoute) {
         var _this = this;
         this.route = route;
         this.answerFeedbackService = answerFeedbackService;
         this.router = router;
         this.countingService = countingService;
+        this.loadSpinner = loadSpinner;
         this.activeRoute = activeRoute;
         this.pathParam = 'id';
         this.countingData = [];
@@ -333,11 +339,11 @@ var CountingComponent = /** @class */ (function () {
     CountingComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (this.countingData.length === 0) {
-            var serverResponse = void 0;
+            this.loadSpinner.isDisplayLoading(true);
             this.countingService.getCountingData().subscribe(function (value) {
-                console.log(value);
                 _this.setCountingData(value);
                 _this.loadCurrentPage();
+                _this.loadSpinner.isDisplayLoading(false);
             });
             // this.loadMockDada();
         }
@@ -373,7 +379,10 @@ var CountingComponent = /** @class */ (function () {
         ];
     };
     CountingComponent.prototype.isItTheLastPic = function () {
-        return this.idToDisplay === this.countingData[this.countingData.length - 1].id;
+        if (this.countingData.length !== 0) {
+            return this.idToDisplay === this.countingData[this.countingData.length - 1].id;
+        }
+        return true;
     };
     CountingComponent.prototype.isItTheFirstPic = function () {
         return this.idToDisplay === '1';
@@ -392,16 +401,17 @@ var CountingComponent = /** @class */ (function () {
         $('backbutton').button('toggle');
     };
     CountingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-counting',
             template: __webpack_require__(/*! ./counting.component.html */ "./src/app/games/counting/counting.component.html"),
             styles: [__webpack_require__(/*! ./counting.component.css */ "./src/app/games/counting/counting.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__["AnswerFeedbackService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_4__["CountingService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__["AnswerFeedbackService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            src_app_services_http_counting_service__WEBPACK_IMPORTED_MODULE_5__["CountingService"],
+            _services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__["LoadSpinnerService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], CountingComponent);
     return CountingComponent;
 }());
@@ -646,6 +656,80 @@ var LettersComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/load-spinner/load-spinner.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/load-spinner/load-spinner.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".loader {\r\n  border: 16px solid #f3f3f3;\r\n  border-radius: 50%;\r\n  border-top: 16px solid #3498db;\r\n  width: 120px;\r\n  height: 120px;\r\n  -webkit-animation: spin 2s linear infinite; /* Safari */\r\n  animation: spin 1s linear infinite;\r\n}\r\n\r\n/* Safari */\r\n\r\n@-webkit-keyframes spin {\r\n  0% { -webkit-transform: rotate(0deg); }\r\n  100% { -webkit-transform: rotate(360deg); }\r\n}\r\n\r\n@keyframes spin {\r\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\r\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\r\n}\r\n\r\n.modal {\r\n  top: 50%;\r\n  right: 50%;\r\n  margin-top: -60px;\r\n  margin-right: -60px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9hZC1zcGlubmVyL2xvYWQtc3Bpbm5lci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQTBCO0VBQzFCLGtCQUFrQjtFQUNsQiw4QkFBOEI7RUFDOUIsWUFBWTtFQUNaLGFBQWE7RUFDYiwwQ0FBMEMsRUFBRSxXQUFXO0VBQ3ZELGtDQUFrQztBQUNwQzs7QUFFQSxXQUFXOztBQUNYO0VBQ0UsS0FBSywrQkFBK0IsRUFBRTtFQUN0QyxPQUFPLGlDQUFpQyxFQUFFO0FBQzVDOztBQUVBO0VBQ0UsS0FBSywrQkFBdUIsRUFBdkIsdUJBQXVCLEVBQUU7RUFDOUIsT0FBTyxpQ0FBeUIsRUFBekIseUJBQXlCLEVBQUU7QUFDcEM7O0FBRUE7RUFDRSxRQUFRO0VBQ1IsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9sb2FkLXNwaW5uZXIvbG9hZC1zcGlubmVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9hZGVyIHtcclxuICBib3JkZXI6IDE2cHggc29saWQgI2YzZjNmMztcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgYm9yZGVyLXRvcDogMTZweCBzb2xpZCAjMzQ5OGRiO1xyXG4gIHdpZHRoOiAxMjBweDtcclxuICBoZWlnaHQ6IDEyMHB4O1xyXG4gIC13ZWJraXQtYW5pbWF0aW9uOiBzcGluIDJzIGxpbmVhciBpbmZpbml0ZTsgLyogU2FmYXJpICovXHJcbiAgYW5pbWF0aW9uOiBzcGluIDFzIGxpbmVhciBpbmZpbml0ZTtcclxufVxyXG5cclxuLyogU2FmYXJpICovXHJcbkAtd2Via2l0LWtleWZyYW1lcyBzcGluIHtcclxuICAwJSB7IC13ZWJraXQtdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7IH1cclxuICAxMDAlIHsgLXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpOyB9XHJcbn1cclxuXHJcbkBrZXlmcmFtZXMgc3BpbiB7XHJcbiAgMCUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTsgfVxyXG4gIDEwMCUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpOyB9XHJcbn1cclxuXHJcbi5tb2RhbCB7XHJcbiAgdG9wOiA1MCU7XHJcbiAgcmlnaHQ6IDUwJTtcclxuICBtYXJnaW4tdG9wOiAtNjBweDtcclxuICBtYXJnaW4tcmlnaHQ6IC02MHB4O1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/load-spinner/load-spinner.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/load-spinner/load-spinner.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div dir=\"rtl\" class=\"modal\" data-backdrop=\"static\"  data-keyboard=\"false\" id=\"load-modal\">\n      <div class=\"loader\">\n      </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/load-spinner/load-spinner.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/load-spinner/load-spinner.component.ts ***!
+  \********************************************************/
+/*! exports provided: LoadSpinnerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSpinnerComponent", function() { return LoadSpinnerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/load-spinner.service */ "./src/app/services/load-spinner.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+
+var LoadSpinnerComponent = /** @class */ (function () {
+    function LoadSpinnerComponent(loadSpinner) {
+        var _this = this;
+        this.loadSpinner = loadSpinner;
+        loadSpinner.getIsToShowLoadingObs().subscribe(function (isToShowLoading) {
+            if (isToShowLoading) {
+                _this.show();
+            }
+            else {
+                _this.hide();
+            }
+        });
+    }
+    LoadSpinnerComponent.prototype.ngOnInit = function () {
+    };
+    LoadSpinnerComponent.prototype.show = function () {
+        $("#load-modal").modal('show');
+    };
+    LoadSpinnerComponent.prototype.hide = function () {
+        $("#load-modal").modal('hide');
+    };
+    LoadSpinnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+            selector: 'app-load-spinner',
+            template: __webpack_require__(/*! ./load-spinner.component.html */ "./src/app/load-spinner/load-spinner.component.html"),
+            styles: [__webpack_require__(/*! ./load-spinner.component.css */ "./src/app/load-spinner/load-spinner.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__["LoadSpinnerService"]])
+    ], LoadSpinnerComponent);
+    return LoadSpinnerComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/nav-bar/nav-bar.component.css":
 /*!***********************************************!*\
   !*** ./src/app/nav-bar/nav-bar.component.css ***!
@@ -772,6 +856,45 @@ var CountingService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], CountingService);
     return CountingService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/load-spinner.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/load-spinner.service.ts ***!
+  \**************************************************/
+/*! exports provided: LoadSpinnerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSpinnerService", function() { return LoadSpinnerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+
+
+var LoadSpinnerService = /** @class */ (function () {
+    function LoadSpinnerService() {
+        this.isToShowLoadingObs = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+    }
+    LoadSpinnerService.prototype.isDisplayLoading = function (isToLoad) {
+        this.isToShowLoadingObs.next(isToLoad);
+    };
+    LoadSpinnerService.prototype.getIsToShowLoadingObs = function () {
+        return this.isToShowLoadingObs;
+    };
+    LoadSpinnerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LoadSpinnerService);
+    return LoadSpinnerService;
 }());
 
 
