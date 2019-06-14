@@ -365,6 +365,9 @@ var CountingComponent = /** @class */ (function () {
         if (this.countingDataToDisplay.answer === selectedNumber) {
             // good asnwer
             this.answerFeedbackService.displayAnswerFeedback(true);
+            if (!this.isItTheLastPic()) {
+                this.loadNextPage();
+            }
         }
         else {
             // wrong answer
