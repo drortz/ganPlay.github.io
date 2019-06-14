@@ -34,27 +34,30 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./games/counting-intro/counting-intro.component */ "./src/app/games/counting-intro/counting-intro.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+
 
 
 
 
 
 var routes = [
-    { path: 'counting/:id', component: _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_3__["CountingComponent"] },
-    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
+    { path: 'counting/:id', component: _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_4__["CountingComponent"] },
+    { path: 'counting', component: _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_1__["CountingIntroComponent"] },
+    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -142,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
 /* harmony import */ var _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./load-spinner/load-spinner.component */ "./src/app/load-spinner/load-spinner.component.ts");
+/* harmony import */ var _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./games/counting-intro/counting-intro.component */ "./src/app/games/counting-intro/counting-intro.component.ts");
+
 
 
 
@@ -170,7 +175,8 @@ var AppModule = /** @class */ (function () {
                 _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__["ImageComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
                 _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__["AnswerFeedbackComponent"],
-                _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__["LoadSpinnerComponent"]
+                _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__["LoadSpinnerComponent"],
+                _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_14__["CountingIntroComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -269,6 +275,65 @@ var AnswerFeedbackComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__["AnswerFeedbackService"]])
     ], AnswerFeedbackComponent);
     return AnswerFeedbackComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/games/counting-intro/counting-intro.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/games/counting-intro/counting-intro.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2NvdW50aW5nLWludHJvL2NvdW50aW5nLWludHJvLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/games/counting-intro/counting-intro.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/games/counting-intro/counting-intro.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-4\">משחק ספירה</h1>\n  <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n  <!-- <img src=\"...\" class=\"rounded float-right\"> -->\n  <hr class=\"my-4\">\n  <p>לחץ להתחלת המשחק</p>\n  <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/games/counting-intro/counting-intro.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/games/counting-intro/counting-intro.component.ts ***!
+  \******************************************************************/
+/*! exports provided: CountingIntroComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountingIntroComponent", function() { return CountingIntroComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var CountingIntroComponent = /** @class */ (function () {
+    function CountingIntroComponent(router) {
+        this.router = router;
+    }
+    CountingIntroComponent.prototype.ngOnInit = function () {
+    };
+    CountingIntroComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-counting-intro',
+            template: __webpack_require__(/*! ./counting-intro.component.html */ "./src/app/games/counting-intro/counting-intro.component.html"),
+            styles: [__webpack_require__(/*! ./counting-intro.component.css */ "./src/app/games/counting-intro/counting-intro.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], CountingIntroComponent);
+    return CountingIntroComponent;
 }());
 
 
@@ -751,7 +816,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink='/counting/1' routerLinkActive='Active'>ספירה</a>\n          </li>\n\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light \" style=\"background-color: #69a5f9;\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink='/counting' routerLinkActive='Active'>ספירה</a>\n          </li>\n\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
 
 /***/ }),
 
