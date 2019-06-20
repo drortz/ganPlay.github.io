@@ -39,6 +39,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _games_letters_letters_intro_letters_intro_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./games/letters/letters-intro/letters-intro.component */ "./src/app/games/letters/letters-intro/letters-intro.component.ts");
+/* harmony import */ var _games_letters_letters_letters_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./games/letters/letters/letters.component */ "./src/app/games/letters/letters/letters.component.ts");
+
+
 
 
 
@@ -48,6 +52,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'counting/:id', component: _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_4__["CountingComponent"] },
     { path: 'counting', component: _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_1__["CountingIntroComponent"] },
+    { path: 'letters', component: _games_letters_letters_intro_letters_intro_component__WEBPACK_IMPORTED_MODULE_6__["LettersIntroComponent"] },
+    { path: 'letters/:id', component: _games_letters_letters_letters_component__WEBPACK_IMPORTED_MODULE_7__["LettersComponent"] },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
     { path: '**', redirectTo: '/home', pathMatch: 'full' },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
@@ -139,15 +145,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _letters_letters_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./letters/letters.component */ "./src/app/letters/letters.component.ts");
-/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
-/* harmony import */ var _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./games/counting/numbers/numbers.component */ "./src/app/games/counting/numbers/numbers.component.ts");
-/* harmony import */ var _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./games/counting/image/image.component */ "./src/app/games/counting/image/image.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
-/* harmony import */ var _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./load-spinner/load-spinner.component */ "./src/app/load-spinner/load-spinner.component.ts");
-/* harmony import */ var _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./games/counting-intro/counting-intro.component */ "./src/app/games/counting-intro/counting-intro.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./games/counting/counting.component */ "./src/app/games/counting/counting.component.ts");
+/* harmony import */ var _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./games/counting/numbers/numbers.component */ "./src/app/games/counting/numbers/numbers.component.ts");
+/* harmony import */ var _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./games/counting/image/image.component */ "./src/app/games/counting/image/image.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
+/* harmony import */ var _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./load-spinner/load-spinner.component */ "./src/app/load-spinner/load-spinner.component.ts");
+/* harmony import */ var _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./games/counting-intro/counting-intro.component */ "./src/app/games/counting-intro/counting-intro.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _games_letters_letters_letters_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./games/letters/letters/letters.component */ "./src/app/games/letters/letters/letters.component.ts");
+/* harmony import */ var _games_letters_letters_intro_letters_intro_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./games/letters/letters-intro/letters-intro.component */ "./src/app/games/letters/letters-intro/letters-intro.component.ts");
+
 
 
 
@@ -172,21 +180,23 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
                 _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_6__["NavBarComponent"],
-                _letters_letters_component__WEBPACK_IMPORTED_MODULE_7__["LettersComponent"],
-                _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_8__["CountingComponent"],
-                _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_9__["NumbersComponent"],
-                _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_10__["ImageComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
-                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__["AnswerFeedbackComponent"],
-                _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__["LoadSpinnerComponent"],
-                _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_14__["CountingIntroComponent"]
+                _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_7__["CountingComponent"],
+                _games_counting_numbers_numbers_component__WEBPACK_IMPORTED_MODULE_8__["NumbersComponent"],
+                _games_counting_image_image_component__WEBPACK_IMPORTED_MODULE_9__["ImageComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
+                _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_11__["AnswerFeedbackComponent"],
+                _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_12__["LoadSpinnerComponent"],
+                _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_13__["CountingIntroComponent"],
+                _games_letters_letters_letters_component__WEBPACK_IMPORTED_MODULE_15__["LettersComponent"],
+                _games_letters_letters_intro_letters_intro_component__WEBPACK_IMPORTED_MODULE_16__["LettersIntroComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
             ],
+            exports: [],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
@@ -303,7 +313,7 @@ module.exports = ".imagesizing {\r\n  height: 70%;\r\n  width: 70%;\r\n}\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <h1 class=\"display-4\">משחק ספירה</h1>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <img src=\"../../../assets/images/Numbers.png\" class=\"img-fluid imagesizing\">\n    </div>\n    <div class=\"row mt-3\">\n        <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row mt-5\">\n        <p>לחץ להתחלת המשחק</p>\n    </div>\n    <div class=\"row\">\n        <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n    </div>\n\n  </div>\n\n\n  <!-- <h1 class=\"display-4\">משחק ספירה</h1>\n  <img src=\"../../../assets/images/Numbers.png\" class=\"rounded float-right imagesizing\">\n  <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n\n  <hr class=\"my-4\">\n\n\n\n  <p>לחץ להתחלת המשחק</p>\n  <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a> -->\n\n</div>\n\n"
+module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <h1 class=\"display-4\">משחק ספירה</h1>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <img src=\"../../../assets/images/Numbers.png\" class=\"img-fluid imagesizing\">\n    </div>\n    <div class=\"row mt-3\">\n        <p class=\"lead\">התאמת סיפרה לכמות הפריטים המופיעים בתמונה.</p>\n\n    </div>\n    <div class=\"row mt-3\">\n      <!-- Button trigger modal -->\n      <button dir=\"rtl\" type=\"button\" class=\"btn btn-outline-info\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n          מידע נוסף על ספירה ומניה\n      </button>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n    </div>\n  </div>\n</div>\n\n\n  <!-- Modal -->\n  <div dir=\"rtl\" class=\"modal fade\" id=\"exampleModalLong\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLongTitle\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">ספירה ומניה / ד\"ר מיכל איכט</h5>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <p>\n              ספירה היא היכולת לנקוב בשם המספרים ברצף הנכון (קדימה או אחורה). לצורך ספירה הילד צריך לדעת את שמות המספרים ואת הרצף שלהם בצורה אוטומטית, ולהצליח לשלוף את שמות המספרים בצורה מדויקת.\n          </p>\n          <p>\n              לעומת זאת, מניה היא יכולת מורכבת יותר – זו היכולת להתאים בין הספירה (שם המספר) לבין כמות הפריטים הנספרים. היא דורשת מן הילד להצביע על כל פריט שנמנה פעם אחת בלבד, מבלי לדלג על פריטים, ולהתאים בין שם המספר לבין הפריט. על מנת לבצע היטב תהליך של מניה הילד נדרש לשלוט ברצף המספרים ולהבינו. עליו לערוך התאמה בין שם המספר לבין הפריט, תוך הבנה שעליו למנות את כל הפריטים, ובעיקר – להבין ששם המספר האחרון מייצג את כמות כל הפריטים שנמנו. הילד נדרש לקואורדינציה טובה המאפשרת לו לגעת רק פעם אחת בלבד בכל אחד מהפריטים הנמנים.\n          </p>\n          <p>\n              תהליך הספירה מתחיל בגיל צעיר מאד. ובהחלט ניתן לפגוש ילדים כבני שנתיים (ממש כמו עדי) המסוגלת לדקלם את שמות המספרים ברצף הנכון. ילד בעל יכולת זיכרון טובה מסוגל ללמוד את רצף המספרים ממש כמו שהוא לומד שירים או דקלומים.\n          </p>\n          <p>\n              לעומת זאת, המניה קשה יותר, ודורשת יכולות קוגניטיביות (חשיבה) ויכולות מוטוריות ההולכות ומבשילות סביב גיל 4-5 שנים. ואכן, בגיל צעיר מרבית הילדים מתקשים למנות. הם טועים טעויות הנובעות מהקושי להבחין ולהפריד בין פריטים שכבר נמנו, לבין פריטים שטרם נמנו. הם מדלגים על פריטים או מונים את אותו פריט כמה וכמה פעמים. יכולת המניה מבשילה סביב גיל 5 שנים, אז הילד אמור למנות בהצלחה סדרה של פריטים. בגיל 6, גיל הכניסה לכיתה א`, הילד אמור להצליח למנות 10 חפצים או יותר, המסודרים במרחב באופנים שונים.\n          </p>\n          <p>\n              שני גורמים מרכזיים משפיעים על דרגת הקושי של המניה. הראשון הוא אופן ארגון החפצים הנמנים במרחב, כאשר מניה מסודרת (בשורה, בטור או בתבנית) היא הקלה ביותר, מניה בתפזורת מהווה דרגת ביניים, ומניה במעגל נחשבת קשה ביותר (כאן קשה לזכור היכן התחלנו למנות, ואילו פריטים כבר נמנו). הגורם השני המשפיע על קושי המניה הוא כמות החפצים הנמנים. ככל שכמותם עולה, כך רמת הקושי של המנייה עולה.\n          </p>\n          <p>\n              כיצד ניתן לשפר את יכולת הספירה, ובעיקר את יכולת המניה?\n          </p>\n          <p>\n              הסביבה הטבעית שלנו מזמנת הזדמנויות אינ-סופיות ללמידת הספירה, וניתן לתרגל עם הפעוט את רצף המספרים בכל רגע – לספור ביחד את האצבעות (\"עשר אצבעות לי יש..\"), את הבובות שעל המדף, את הספרים, את הדמויות בתמונה, את הצעדים מהרכב ועד הכניסה לגן, את המדרגות המובילות לבית, את הסוכריות שעל העוגה ועוד ועוד. את הילדים המבוגרים יותר ניתן לשאול מפורשות \"כמה יש כאן?\" – ולוודא שהם מונים כנדרש, ועונים בשם המספר המתאים.\n          </p>\n          <p>\n              בנוסף ללמידה ה\"סביבתית\" הזו, קיימים לא מעט משחקים ועזרים דידקטיים ללימוד המספרים ורצף המספרים (כגון פאזלים בהם יש להתאים חלק ובו הספרה המתאימה לחלק ובו מספר פריטים תואם).\n          </p>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">סגירה</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -620,6 +630,121 @@ var NumbersComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/games/letters/letters-intro/letters-intro.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/games/letters/letters-intro/letters-intro.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".imagesizing {\r\n  height: 40%;\r\n  width: 40%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvbGV0dGVycy9sZXR0ZXJzLWludHJvL2xldHRlcnMtaW50cm8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYW1lcy9sZXR0ZXJzL2xldHRlcnMtaW50cm8vbGV0dGVycy1pbnRyby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlc2l6aW5nIHtcclxuICBoZWlnaHQ6IDQwJTtcclxuICB3aWR0aDogNDAlO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/games/letters/letters-intro/letters-intro.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/games/letters/letters-intro/letters-intro.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n    <div class=\"container\">\n      <div class=\"row\">\n          <h1 class=\"display-4\">אות פותחת ואות סוגרת</h1>\n      </div>\n      <hr class=\"my-4\">\n      <div class=\"row\">\n          <img src=\"../../../../assets/images/Letters.png\" class=\"img-fluid imagesizing\">\n      </div>\n      <div class=\"row mt-3\">\n          <p class=\"lead\">התאמת אות פותחת ואות סוגרת של התמונה המוצגת.</p>\n\n      </div>\n      <div class=\"row mt-3\">\n        <!-- Button trigger modal -->\n        <button dir=\"rtl\" type=\"button\" class=\"btn btn-outline-info\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n            מידע נוסף על אות פותחת ואות סוגרת\n        </button>\n      </div>\n      <hr class=\"my-4\">\n      <div class=\"row\">\n          <a (click)=\"router.navigate(['/letters/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n      </div>\n    </div>\n  </div>\n\n\n    <!-- Modal -->\n    <div dir=\"rtl\" class=\"modal fade\" id=\"exampleModalLong\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLongTitle\" aria-hidden=\"true\">\n      <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">אות פותחת ואות סוגרת</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n            <p>\n\n            </p>\n          </div>\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">סגירה</button>\n          </div>\n        </div>\n      </div>\n    </div>\n"
+
+/***/ }),
+
+/***/ "./src/app/games/letters/letters-intro/letters-intro.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/games/letters/letters-intro/letters-intro.component.ts ***!
+  \************************************************************************/
+/*! exports provided: LettersIntroComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersIntroComponent", function() { return LettersIntroComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var LettersIntroComponent = /** @class */ (function () {
+    function LettersIntroComponent(router) {
+        this.router = router;
+    }
+    LettersIntroComponent.prototype.ngOnInit = function () {
+    };
+    LettersIntroComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-letters-intro',
+            template: __webpack_require__(/*! ./letters-intro.component.html */ "./src/app/games/letters/letters-intro/letters-intro.component.html"),
+            styles: [__webpack_require__(/*! ./letters-intro.component.css */ "./src/app/games/letters/letters-intro/letters-intro.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], LettersIntroComponent);
+    return LettersIntroComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/games/letters/letters/letters.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/games/letters/letters/letters.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2xldHRlcnMvbGV0dGVycy9sZXR0ZXJzLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/games/letters/letters/letters.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/games/letters/letters/letters.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  letters works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/games/letters/letters/letters.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/games/letters/letters/letters.component.ts ***!
+  \************************************************************/
+/*! exports provided: LettersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersComponent", function() { return LettersComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LettersComponent = /** @class */ (function () {
+    function LettersComponent() {
+    }
+    LettersComponent.prototype.ngOnInit = function () {
+    };
+    LettersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-letters',
+            template: __webpack_require__(/*! ./letters.component.html */ "./src/app/games/letters/letters/letters.component.html"),
+            styles: [__webpack_require__(/*! ./letters.component.css */ "./src/app/games/letters/letters/letters.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LettersComponent);
+    return LettersComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.css":
 /*!*****************************************!*\
   !*** ./src/app/home/home.component.css ***!
@@ -638,7 +763,7 @@ module.exports = "\r\n.card:hover{\r\n  border-style: outset;\r\n  border-width:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section >\n  <!-- Pictur of gan play-->\n</section>\n<section>\n  <div dir=\"rtl\" class=\"container\">\n    <div class=\"row justify-content-center\">\n      <h3>המשחקים שלנו</h3>\n    </div>\n    <div class=\"row\">\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 mb-4\">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק ספירה</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">ספירת אלמנטים המופיעים בכל כרטיס ובחירת תשובה</p>\n                <a (click)=\"router.navigate(['/counting']);\" class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 \">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק 2</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">הסבר על משחק 2 בלה בלה בלה בלה בלה</p>\n                <a class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 \">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק 3</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">הסבר על משחק 3 בלה בלה בלה בלה</p>\n                <a class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n    </div>\n  </div>\n\n</section>\n\n\n\n\n"
+module.exports = "<section >\n  <!-- Pictur of gan play-->\n</section>\n<section>\n  <div dir=\"rtl\" class=\"container\">\n    <div class=\"row justify-content-center\">\n      <h3>המשחקים שלנו</h3>\n    </div>\n    <div class=\"row\">\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 mb-4\">\n          <div class=\"card\" style=\"width: 20rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk; height: 180px\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק ספירה</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">ספירה ומניה של אובייקטים המופיעים בכל תמונה והתאמת מספר</p>\n                <a (click)=\"router.navigate(['/counting']);\" class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 mb-4\">\n          <div class=\"card\" style=\"width: 20rem;\">\n              <img src=\"../../assets/images/Letters.png\" style=\"background:rgb(176, 255, 189); height: 180px\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">אות פותחת אות סוגרת</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">התאמת אות פותחת ואות סוגרת לאובייקטים המופיעים בכל תמונה</p>\n                <a routerLink='/letters' class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 mb-4\">\n          <div class=\"card\" style=\"width: 20rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק 3</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">הסבר על משחק 3 בלה בלה בלה בלה</p>\n                <a class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n    </div>\n  </div>\n\n</section>\n\n\n\n\n"
 
 /***/ }),
 
@@ -673,62 +798,6 @@ var HomeComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/letters/letters.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/letters/letters.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xldHRlcnMvbGV0dGVycy5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/letters/letters.component.html":
-/*!************************************************!*\
-  !*** ./src/app/letters/letters.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"w-100\"></div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"w-100\"></div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n      <div class=\"col\">\n          <div class=\"card shadow bg-white rounded\">\n              <img src=\"https://www.partyclick.co.il/files/products/product1847_image1_2018-09-10_12-06-12.png\" class=\"card-img-top\" alt=\"...\">\n          </div>\n      </div>\n    </div>\n  </div>\n"
-
-/***/ }),
-
-/***/ "./src/app/letters/letters.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/letters/letters.component.ts ***!
-  \**********************************************/
-/*! exports provided: LettersComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersComponent", function() { return LettersComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var LettersComponent = /** @class */ (function () {
-    function LettersComponent() {
-    }
-    LettersComponent.prototype.ngOnInit = function () {
-    };
-    LettersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-letters',
-            template: __webpack_require__(/*! ./letters.component.html */ "./src/app/letters/letters.component.html"),
-            styles: [__webpack_require__(/*! ./letters.component.css */ "./src/app/letters/letters.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], LettersComponent);
-    return LettersComponent;
 }());
 
 
@@ -827,7 +896,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light \" style=\"background-color: #69a5f9;\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n            <a class=\"nav-link\" routerLink='/counting' routerLinkActive='Active'>ספירה</a>\n        </li>\n        <li class=\"nav-item active\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light \" style=\"background-color: #69a5f9;\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n            <a class=\"nav-link\" routerLink='/letters' routerLinkActive='Active'>אות פותחת וסוגרת</a>\n        </li>\n        <li class=\"nav-item\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n            <a class=\"nav-link\" routerLink='/counting' routerLinkActive='Active'>ספירה ומניה</a>\n        </li>\n        <li class=\"nav-item active\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
 
 /***/ }),
 
