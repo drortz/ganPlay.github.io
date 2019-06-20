@@ -49,6 +49,7 @@ var routes = [
     { path: 'counting/:id', component: _games_counting_counting_component__WEBPACK_IMPORTED_MODULE_4__["CountingComponent"] },
     { path: 'counting', component: _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_1__["CountingIntroComponent"] },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -146,6 +147,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _games_answer_feedback_answer_feedback_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games/answer-feedback/answer-feedback.component */ "./src/app/games/answer-feedback/answer-feedback.component.ts");
 /* harmony import */ var _load_spinner_load_spinner_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./load-spinner/load-spinner.component */ "./src/app/load-spinner/load-spinner.component.ts");
 /* harmony import */ var _games_counting_intro_counting_intro_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./games/counting-intro/counting-intro.component */ "./src/app/games/counting-intro/counting-intro.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 
@@ -181,7 +184,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -288,7 +292,7 @@ var AnswerFeedbackComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2NvdW50aW5nLWludHJvL2NvdW50aW5nLWludHJvLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = ".imagesizing {\r\n  height: 70%;\r\n  width: 70%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmctaW50cm8vY291bnRpbmctaW50cm8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYW1lcy9jb3VudGluZy1pbnRyby9jb3VudGluZy1pbnRyby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlc2l6aW5nIHtcclxuICBoZWlnaHQ6IDcwJTtcclxuICB3aWR0aDogNzAlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -299,7 +303,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-4\">משחק ספירה</h1>\n  <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n  <!-- <img src=\"...\" class=\"rounded float-right\"> -->\n  <hr class=\"my-4\">\n  <p>לחץ להתחלת המשחק</p>\n  <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n</div>\n\n"
+module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <h1 class=\"display-4\">משחק ספירה</h1>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <img src=\"../../../assets/images/Numbers.png\" class=\"img-fluid imagesizing\">\n    </div>\n    <div class=\"row mt-3\">\n        <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row mt-5\">\n        <p>לחץ להתחלת המשחק</p>\n    </div>\n    <div class=\"row\">\n        <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n    </div>\n\n  </div>\n\n\n  <!-- <h1 class=\"display-4\">משחק ספירה</h1>\n  <img src=\"../../../assets/images/Numbers.png\" class=\"rounded float-right imagesizing\">\n  <p class=\"lead\">זהו משחק ספירה שבו צריך לספור את האובייקטים המופיעים וללחוץ על התשובה הנכונה.</p>\n\n  <hr class=\"my-4\">\n\n\n\n  <p>לחץ להתחלת המשחק</p>\n  <a (click)=\"router.navigate(['/counting/1']);\" class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a> -->\n\n</div>\n\n"
 
 /***/ }),
 
@@ -347,7 +351,7 @@ var CountingIntroComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 50%;\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvY291bnRpbmcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9nYW1lcy9jb3VudGluZy9jb3VudGluZy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFwcGVhci1hcy1kaXNhYmxle1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG4gIG9wYWNpdHk6IDUwJTtcclxufVxyXG5cclxuXHJcbiJdfQ== */"
+module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0.2;\r\n}\r\n\r\n.nextback{\r\n  width: 110px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.nextback:hover{\r\n  /* transform: scale(1.2); */\r\n  /* filter: blur(5px); */\r\n}\r\n\r\n.nextback:active{\r\n  /* filter: blur(5px); */\r\n  -webkit-transform: scale(1.3);\r\n          transform: scale(1.3);\r\n}\r\n\r\n@media screen and (max-width: 994px) {\r\n  .nextback{\r\n    width: 70px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n  .nextback{\r\n    width: 45px;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvY291bnRpbmcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSwyQkFBMkI7RUFDM0IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLDZCQUFxQjtVQUFyQixxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRTtJQUNFLFdBQVc7RUFDYjtBQUNGOztBQUdBO0VBQ0U7SUFDRSxXQUFXO0VBQ2I7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2NvdW50aW5nL2NvdW50aW5nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXBwZWFyLWFzLWRpc2FibGV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbiAgb3BhY2l0eTogMC4yO1xyXG59XHJcblxyXG4ubmV4dGJhY2t7XHJcbiAgd2lkdGg6IDExMHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4ubmV4dGJhY2s6aG92ZXJ7XHJcbiAgLyogdHJhbnNmb3JtOiBzY2FsZSgxLjIpOyAqL1xyXG4gIC8qIGZpbHRlcjogYmx1cig1cHgpOyAqL1xyXG59XHJcblxyXG4ubmV4dGJhY2s6YWN0aXZle1xyXG4gIC8qIGZpbHRlcjogYmx1cig1cHgpOyAqL1xyXG4gIHRyYW5zZm9ybTogc2NhbGUoMS4zKTtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogOTk0cHgpIHtcclxuICAubmV4dGJhY2t7XHJcbiAgICB3aWR0aDogNzBweDtcclxuICB9XHJcbn1cclxuXHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjBweCkge1xyXG4gIC5uZXh0YmFja3tcclxuICAgIHdpZHRoOiA0NXB4O1xyXG4gIH1cclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -358,7 +362,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 5
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mt-2 mb-2\">\n  <div class=\"row\" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\"><button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button></p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\"><button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button></p>\n    </div>\n  </div>\n</div>\n\n<div class=\"container \" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n"
+module.exports = "\n\n<div class=\"container\">\n  <div class=\"row \" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left mt-2 mb-2\">\n          <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n          <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded mx-auto d-block nextback' : 'rounded mx-auto d-block nextback appear-as-disable'\" alt=\"Responsive image\">\n        </p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right mt-2 mb-2\">\n            <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded mx-auto d-block nextback' : 'rounded mx-auto d-block nextback appear-as-disable'\" alt=\"Responsive image\">\n          <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n        </p>\n    </div>\n  </div>\n</div>\n\n\n<div class=\"container\" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n\n"
 
 /***/ }),
 
@@ -420,6 +424,10 @@ var CountingComponent = /** @class */ (function () {
         this.countingData = data;
     };
     CountingComponent.prototype.loadCurrentPage = function () {
+        if (+this.idToDisplay > this.countingData.length || isNaN(+this.idToDisplay)) {
+            this.idToDisplay = '1';
+            this.router.navigateByUrl('/counting/' + this.idToDisplay);
+        }
         this.countingDataToDisplay = this.countingData[+this.idToDisplay - 1];
         if (this.countingDataToDisplay === undefined) {
             this.countingDataToDisplay = this.countingData[this.countingData.length - 1];
@@ -566,7 +574,7 @@ module.exports = ".dynbamicfontsize{\r\n  font-size: 110px;\r\n}\r\n\r\n@media s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section bg-light\">\n    <div class=\"container pt-3 pb-2\" dir=\"rtl\" >\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('1')\" >1</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('2')\" >2</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('3')\">3</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('4')\">4</button>\n            </div>\n            <div class=\"col-2 mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\"  (click)=\"onNumberClick('5')\">5</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('6')\">6</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('7')\">7</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('8')\">8</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('9')\">9</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('10')\">10</button>\n            </div>\n          </div>\n      </div>\n\n</div>\n"
+module.exports = "<div class=\"section bg-light\">\n    <div class=\"container pt-3 pb-2\" dir=\"rtl\" >\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2  mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('1')\" >1</button>\n            </div>\n            <div class=\"col-2  mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('2')\" >2</button>\n            </div>\n            <div class=\"col-2  mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('3')\">3</button>\n            </div>\n            <div class=\"col-2  mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('4')\">4</button>\n            </div>\n            <div class=\"col-2  mb-3\" >\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\"  (click)=\"onNumberClick('5')\">5</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-center \">\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('6')\">6</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('7')\">7</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('8')\">8</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('9')\">9</button>\n            </div>\n            <div class=\"col-2 mb-3\">\n                <button type=\"button\" class=\"btn btn-outline-primary btn-lg btn-block dynbamicfontsize shadow\" (click)=\"onNumberClick('10')\">10</button>\n            </div>\n          </div>\n      </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -630,7 +638,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\n  home works!\n</p>\n\n<div dir=\"rtl\" class=\"container\" style=\"background: lemonchiffon\">\n  <div class=\"row pt-4\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">URL</span>\n      </div>\n      <input [(ngModel)]=\"this.URL\" type=\"text\" class=\"form-control\" placeholder=\"URL\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n  <div class=\"row\">\n\n      <div class=\"input-group mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"basic-addon1\">answer</span>\n        </div>\n        <input [(ngModel)]=\"this.answer\" type=\"text\" class=\"form-control\" placeholder=\"answer\" aria-label=\"answer\" aria-describedby=\"basic-addon1\">\n      </div>\n\n  </div>\n  <div class=\"row\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">subject</span>\n      </div>\n      <input [(ngModel)]=\"this.subject\" type=\"text\" class=\"form-control\" placeholder=\"subject\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">id</span>\n      </div>\n      <input [(ngModel)]=\"this.id\" type=\"text\" class=\"form-control\" placeholder=\"id\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <a (click)=\"onPost()\" class=\"btn btn-primary\" role=\"button\">Post</a>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -646,12 +654,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_http_counting_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/http/counting.service */ "./src/app/services/http/counting.service.ts");
+
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(countingService) {
+        this.countingService = countingService;
+        this.URL = '';
+        this.subject = '';
+        this.answer = '';
+        this.id = '';
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.countingService.getCountingData().subscribe(function (param) {
+            _this.id = String(+param[param.length - 1].id + 1);
+        });
+    };
+    HomeComponent.prototype.onPost = function () {
+        var counitngData = { imageUrl: this.URL, answer: this.answer, subject: this.subject, id: this.id };
+        this.countingService.postCountingData(counitngData).subscribe(function (param) {
+        });
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -659,7 +683,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_http_counting_service__WEBPACK_IMPORTED_MODULE_2__["CountingService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -916,6 +940,9 @@ var CountingService = /** @class */ (function () {
     }
     CountingService.prototype.getCountingData = function () {
         return this.httpClient.get(this.url);
+    };
+    CountingService.prototype.postCountingData = function (counitngData) {
+        return this.httpClient.post(this.url, counitngData);
     };
     CountingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
