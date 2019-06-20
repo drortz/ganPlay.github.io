@@ -627,7 +627,7 @@ var NumbersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\r\n.card:hover{\r\n  border-style: outset;\r\n  border-width: 2px;\r\n  border-color: blue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0Usb0JBQW9CO0VBQ3BCLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uY2FyZDpob3ZlcntcclxuICBib3JkZXItc3R5bGU6IG91dHNldDtcclxuICBib3JkZXItd2lkdGg6IDJweDtcclxuICBib3JkZXItY29sb3I6IGJsdWU7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -638,7 +638,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n\n<div dir=\"rtl\" class=\"container\" style=\"background: lemonchiffon\">\n  <div class=\"row pt-4\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">URL</span>\n      </div>\n      <input [(ngModel)]=\"this.URL\" type=\"text\" class=\"form-control\" placeholder=\"URL\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n  <div class=\"row\">\n\n      <div class=\"input-group mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"basic-addon1\">answer</span>\n        </div>\n        <input [(ngModel)]=\"this.answer\" type=\"text\" class=\"form-control\" placeholder=\"answer\" aria-label=\"answer\" aria-describedby=\"basic-addon1\">\n      </div>\n\n  </div>\n  <div class=\"row\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">subject</span>\n      </div>\n      <input [(ngModel)]=\"this.subject\" type=\"text\" class=\"form-control\" placeholder=\"subject\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text\" id=\"basic-addon1\">id</span>\n      </div>\n      <input [(ngModel)]=\"this.id\" type=\"text\" class=\"form-control\" placeholder=\"id\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <a (click)=\"onPost()\" class=\"btn btn-primary\" role=\"button\">Post</a>\n  </div>\n</div>\n\n\n"
+module.exports = "<section >\n  <!-- Pictur of gan play-->\n</section>\n<section>\n  <div dir=\"rtl\" class=\"container\">\n    <div class=\"row justify-content-center\">\n      <h3>המשחקים שלנו</h3>\n    </div>\n    <div class=\"row\">\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 mb-4\">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק ספירה</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">ספירת אלמנטים המופיעים בכל כרטיס ובחירת תשובה</p>\n                <a (click)=\"router.navigate(['/counting']);\" class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 \">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק 2</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">הסבר על משחק 2 בלה בלה בלה בלה בלה</p>\n                <a class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n      <div class=\"col col-sm-12 col-md-6 col-lg-6 \">\n          <div class=\"card\" style=\"width: 18rem;\">\n              <img src=\"../../assets/images/Numbers.png\" style=\"background:cornsilk\" class=\"card-img-top\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">משחק 3</h5>\n                <hr class=\"my-4\">\n                <p class=\"card-text\">הסבר על משחק 3 בלה בלה בלה בלה</p>\n                <a class=\"btn btn-primary\">למשחק</a>\n              </div>\n          </div>\n      </div>\n    </div>\n  </div>\n\n</section>\n\n\n\n\n"
 
 /***/ }),
 
@@ -654,28 +654,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_http_counting_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/http/counting.service */ "./src/app/services/http/counting.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(countingService) {
-        this.countingService = countingService;
-        this.URL = '';
-        this.subject = '';
-        this.answer = '';
-        this.id = '';
+    function HomeComponent(router) {
+        this.router = router;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.countingService.getCountingData().subscribe(function (param) {
-            _this.id = String(+param[param.length - 1].id + 1);
-        });
-    };
-    HomeComponent.prototype.onPost = function () {
-        var counitngData = { imageUrl: this.URL, answer: this.answer, subject: this.subject, id: this.id };
-        this.countingService.postCountingData(counitngData).subscribe(function (param) {
-        });
     };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -683,7 +670,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_http_counting_service__WEBPACK_IMPORTED_MODULE_2__["CountingService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -840,7 +827,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light \" style=\"background-color: #69a5f9;\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLink='/counting' routerLinkActive='Active'>ספירה</a>\n          </li>\n\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light \" style=\"background-color: #69a5f9;\">\n    <a class=\"navbar-brand\" >גן פליי</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n            <a class=\"nav-link\" routerLink='/counting' routerLinkActive='Active'>ספירה</a>\n        </li>\n        <li class=\"nav-item active\" data-toggle=\"collapse\" data-target=\".navbar-collapse.show\">\n          <a class=\"nav-link\" routerLink='/home' routerLinkActive='Active'>בית</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n"
 
 /***/ }),
 
