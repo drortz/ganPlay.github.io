@@ -797,7 +797,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <div class=\"row \" dir='rtl'>\n      <div class=\"col\">\n          <p class=\"text-left mt-3 mb-2\">\n            <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n            <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n          </p>\n      </div>\n      <div class=\"col\">\n          <p class=\"text-right mt-3 mb-2\">\n              <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n            <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n          </p>\n      </div>\n    </div>\n</div>\n\n<div class=\"container mt-4\">\n    <div class=\"row justify-content-center\" dir='rtl'>\n        <div class=\"col-3 align-self-center\">\n          <p>אות פותחת</p>\n          <div cdkDropList id=\"firstLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateFirstLetter\" [cdkDropListData]=\"firstLetter\" (cdkDropListDropped)=\"drop($event)\">\n              <div [className]=\"isFirstLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of firstLetter\" cdkDrag>{{letter}}</div>\n          </div>\n        </div>\n        <div class=\"col-6 align-middle\">\n\n          <img src={{mockDataToDisplay.imageUrl}} [className]=\"isCompletelyAnswered() ? 'rounded mx-auto d-block img-fluid shadow correctimage' : 'rounded mx-auto d-block img-fluid shadow'\" alt=\"Responsive image\">\n\n          <!-- <app-image  [imageUrl]=\"mockDataToDisplay.imageUrl\"></app-image> -->\n        </div>\n        <div class=\"col-3 align-self-center\">\n            <p>אות סוגרת</p>\n            <div cdkDropList id=\"lastLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateLastLetter\" [cdkDropListData]=\"lastLetter\" (cdkDropListDropped)=\"drop($event)\">\n                <div [className]=\"isLastLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of lastLetter\" cdkDrag>{{letter}}</div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"container mt-5\">\n    <div class=\"example-container\">\n        <div id=\"src1\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src2\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters2\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters2\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src3\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters3\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters3\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n</div>\n\n<app-answer-feedback></app-answer-feedback>\n"
+module.exports = "<div *ngIf=\"isLoaded\" class=\"container\">\n    <div class=\"row \" dir='rtl'>\n      <div class=\"col\">\n          <p class=\"text-left mt-3 mb-2\">\n            <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n            <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n          </p>\n      </div>\n      <div class=\"col\">\n          <p class=\"text-right mt-3 mb-2\">\n              <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n            <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n          </p>\n      </div>\n    </div>\n</div>\n\n<div *ngIf=\"isLoaded\" class=\"container mt-4\">\n    <div class=\"row justify-content-center\" dir='rtl'>\n        <div class=\"col-3 align-self-center\">\n          <p>אות פותחת</p>\n          <div cdkDropList id=\"firstLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateFirstLetter\" [cdkDropListData]=\"firstLetter\" (cdkDropListDropped)=\"drop($event)\">\n              <div [className]=\"isFirstLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of firstLetter\" cdkDrag>{{letter}}</div>\n          </div>\n        </div>\n        <div class=\"col-6 align-middle\">\n\n          <img src={{lettersDataToDisplay.imageUrl}} [className]=\"isCompletelyAnswered() ? 'rounded mx-auto d-block img-fluid shadow correctimage' : 'rounded mx-auto d-block img-fluid shadow'\" alt=\"Responsive image\">\n\n          <!-- <app-image  [imageUrl]=\"mockDataToDisplay.imageUrl\"></app-image> -->\n        </div>\n        <div class=\"col-3 align-self-center\">\n            <p>אות סוגרת</p>\n            <div cdkDropList id=\"lastLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateLastLetter\" [cdkDropListData]=\"lastLetter\" (cdkDropListDropped)=\"drop($event)\">\n                <div [className]=\"isLastLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of lastLetter\" cdkDrag>{{letter}}</div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"container mt-5\">\n    <div class=\"example-container\">\n        <div id=\"src1\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src2\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters2\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters2\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src3\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters3\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters3\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n</div>\n\n<app-answer-feedback></app-answer-feedback>\n"
 
 /***/ }),
 
@@ -812,11 +812,13 @@ module.exports = "<div class=\"container\">\n    <div class=\"row \" dir='rtl'>\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersComponent", function() { return LettersComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _services_http_letters_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../services/http/letters.service */ "./src/app/services/http/letters.service.ts");
+/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 
@@ -824,10 +826,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LettersComponent = /** @class */ (function () {
-    function LettersComponent(dragDrop, router, answerFeedback, activeRoute) {
+    function LettersComponent(dragDrop, router, lettersService, answerFeedback, activeRoute) {
         var _this = this;
         this.dragDrop = dragDrop;
         this.router = router;
+        this.lettersService = lettersService;
         this.answerFeedback = answerFeedback;
         this.activeRoute = activeRoute;
         this.letters = ['ט', 'ח', 'ז', 'ו', 'ה', 'ד', 'ג', 'ב', 'א'];
@@ -835,12 +838,13 @@ var LettersComponent = /** @class */ (function () {
         this.letters3 = ['ץ', 'ף', 'ן', 'ם', 'ך', 'ת', 'ש', 'ר', 'ק'];
         this.firstLetter = [];
         this.lastLetter = [];
-        this.mockData = [];
+        this.lettersData = [];
+        this.isLoaded = false;
         this.dynamicPredicateFirstLetter = function (item) {
-            return item.element.nativeElement.textContent === _this.mockDataToDisplay.firstLetter;
+            return item.element.nativeElement.textContent === _this.lettersDataToDisplay.firstLetter;
         };
         this.dynamicPredicateLastLetter = function (item) {
-            return item.element.nativeElement.textContent === _this.mockDataToDisplay.lastLetter;
+            return item.element.nativeElement.textContent === _this.lettersDataToDisplay.lastLetter;
         };
         activeRoute.params.subscribe(function (val) {
             _this.idToDisplay = val.id;
@@ -848,24 +852,36 @@ var LettersComponent = /** @class */ (function () {
         });
     }
     LettersComponent.prototype.ngOnInit = function () {
-        if (this.mockData.length === 0) {
-            this.loadMockData();
+        var _this = this;
+        if (this.lettersData.length === 0) {
+            this.lettersService.getLettersData().subscribe(function (value) {
+                _this.setLettersData(value);
+                _this.loadCurrentPage();
+            });
+            // this.loadMockData();
+            // this.loadCurrentPage();
         }
-        this.loadCurrentPage();
-        this.clearFirstOrLastLetterCorrect();
+        else {
+            this.loadCurrentPage();
+        }
+    };
+    LettersComponent.prototype.setLettersData = function (data) {
+        this.lettersData = data;
     };
     LettersComponent.prototype.loadCurrentPage = function () {
-        if (+this.idToDisplay > this.mockData.length || isNaN(+this.idToDisplay)) {
+        if (+this.idToDisplay > this.lettersData.length || isNaN(+this.idToDisplay)) {
             this.idToDisplay = '1';
             this.router.navigateByUrl('/letters/' + this.idToDisplay);
         }
-        this.mockDataToDisplay = this.mockData[+this.idToDisplay - 1];
-        if (this.mockDataToDisplay === undefined) {
-            this.mockDataToDisplay = this.mockData[this.mockData.length - 1];
+        this.lettersDataToDisplay = this.lettersData[+this.idToDisplay - 1];
+        if (this.lettersDataToDisplay === undefined) {
+            this.lettersDataToDisplay = this.lettersData[this.lettersData.length - 1];
         }
+        this.clearFirstOrLastLetterCorrect();
+        this.isLoaded = true;
     };
     LettersComponent.prototype.loadMockData = function () {
-        this.mockData = [{ imageUrl: "https://extension.usu.edu/yardandgarden/ou-images/apples.png", firstLetter: 'ת', lastLetter: 'ח', id: '1' },
+        this.lettersData = [{ imageUrl: "https://extension.usu.edu/yardandgarden/ou-images/apples.png", firstLetter: 'ת', lastLetter: 'ח', id: '1' },
             { imageUrl: "https://target.scene7.com/is/image/Target/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1?wid=488&hei=488&fmt=pjpeg", firstLetter: 'ב', lastLetter: 'ה', id: '2' }];
     };
     LettersComponent.prototype.drop = function (event) {
@@ -878,11 +894,11 @@ var LettersComponent = /** @class */ (function () {
             //   event.container.data,
             //   event.previousIndex,
             //   event.currentIndex);
-            Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["copyArrayItem"])(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+            Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__["copyArrayItem"])(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
         }
         if (this.isCompletelyAnswered()) {
             this.answerFeedback.displayAnswerFeedback(true);
-            var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(1500);
+            var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(1500);
             var abc = source.subscribe(function (val) {
                 if (!_this.isItTheLastPic()) {
                     _this.loadNextPage();
@@ -891,20 +907,20 @@ var LettersComponent = /** @class */ (function () {
         }
     };
     LettersComponent.prototype.isCompletelyAnswered = function () {
-        if (this.mockDataToDisplay.lastLetter && this.firstLetter[0]) {
+        if (this.lettersDataToDisplay.lastLetter && this.firstLetter[0]) {
             this.isFirstLetterCorrect = true;
         }
-        if (this.lastLetter[0] === this.mockDataToDisplay.lastLetter) {
+        if (this.lastLetter[0] === this.lettersDataToDisplay.lastLetter) {
             this.isLastLetterCorrect = true;
         }
-        return this.lastLetter[0] === this.mockDataToDisplay.lastLetter && this.firstLetter[0] === this.mockDataToDisplay.firstLetter;
+        return this.lastLetter[0] === this.lettersDataToDisplay.lastLetter && this.firstLetter[0] === this.lettersDataToDisplay.firstLetter;
     };
     LettersComponent.prototype.noReturnPredicate = function () {
         return false;
     };
     LettersComponent.prototype.isItTheLastPic = function () {
-        if (this.mockData.length !== 0) {
-            return this.idToDisplay === this.mockData[this.mockData.length - 1].id;
+        if (this.lettersData.length !== 0) {
+            return this.idToDisplay === this.lettersData[this.lettersData.length - 1].id;
         }
         return true;
     };
@@ -932,15 +948,16 @@ var LettersComponent = /** @class */ (function () {
         this.isLastLetterCorrect = false;
     };
     LettersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-letters',
             template: __webpack_require__(/*! ./letters.component.html */ "./src/app/games/letters/letters/letters.component.html"),
             styles: [__webpack_require__(/*! ./letters.component.css */ "./src/app/games/letters/letters/letters.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_1__["AnswerFeedbackService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__["DragDropModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _services_http_letters_service__WEBPACK_IMPORTED_MODULE_1__["LettersService"],
+            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__["AnswerFeedbackService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
     ], LettersComponent);
     return LettersComponent;
 }());
@@ -1258,6 +1275,43 @@ var HomeService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], HomeService);
     return HomeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/http/letters.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/http/letters.service.ts ***!
+  \**************************************************/
+/*! exports provided: LettersService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersService", function() { return LettersService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var LettersService = /** @class */ (function () {
+    function LettersService(httpClient) {
+        this.httpClient = httpClient;
+        this.url = 'https://ganplay.appspot.com/Letters';
+    }
+    LettersService.prototype.getLettersData = function () {
+        return this.httpClient.get(this.url);
+    };
+    LettersService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], LettersService);
+    return LettersService;
 }());
 
 
