@@ -272,6 +272,7 @@ var AnswerFeedbackComponent = /** @class */ (function () {
         this.correctImage = '../../../assets/images/Smily.png';
         this.IncorrectMessage = 'נסו שוב';
         this.IncorrectImage = '../../../assets/images/smilyConfuzed.png';
+        this.audioCorrectSrc = "../../../assets/sound/correct.mp3";
         answerFeedbackService.getIsAnswerCorrectObs().subscribe(function (isAnswerCorrect) {
             if (isAnswerCorrect) {
                 _this.loadCorrectFeedback();
@@ -284,6 +285,18 @@ var AnswerFeedbackComponent = /** @class */ (function () {
             var abc = source.subscribe(function (val) {
                 _this.hide();
             });
+        });
+        answerFeedbackService.getPlaySoundperInput().subscribe(function (isAnswerCorrect) {
+            var audio = new Audio();
+            if (isAnswerCorrect) {
+                //play correct sound
+                audio.src = _this.audioCorrectSrc;
+            }
+            else {
+                //play incorrect sound
+            }
+            audio.load();
+            audio.play();
         });
     }
     AnswerFeedbackComponent.prototype.loadCorrectFeedback = function () {
@@ -335,7 +348,7 @@ module.exports = ".imagesizing {\r\n  height: 70%;\r\n  width: 70%;\r\n}\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <h1 class=\"display-4\">משחק ספירה</h1>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <img src=\"../../../assets/images/Numbers.png\" class=\"img-fluid imagesizing\">\n    </div>\n    <div class=\"row mt-3\">\n        <p class=\"lead\">התאמת סיפרה לכמות הפריטים המופיעים בתמונה.</p>\n\n    </div>\n    <div class=\"row mt-3\">\n      <!-- Button trigger modal -->\n      <button dir=\"rtl\" type=\"button\" class=\"btn btn-outline-info\" data-toggle=\"modal\" data-target=\"#exampleModalLong\">\n          למידע נוסף על ספירה ומניה\n      </button>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <a routerLink='/counting/1' class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n    </div>\n  </div>\n</div>\n\n\n  <!-- Modal -->\n  <div dir=\"rtl\" class=\"modal fade\" id=\"exampleModalLong\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLongTitle\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">ספירה ומניה / ד\"ר מיכל איכט</h5>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <p>\n              ספירה היא היכולת לנקוב בשם המספרים ברצף הנכון (קדימה או אחורה). לצורך ספירה הילד צריך לדעת את שמות המספרים ואת הרצף שלהם בצורה אוטומטית, ולהצליח לשלוף את שמות המספרים בצורה מדויקת.\n          </p>\n          <p>\n              לעומת זאת, מניה היא יכולת מורכבת יותר – זו היכולת להתאים בין הספירה (שם המספר) לבין כמות הפריטים הנספרים. היא דורשת מן הילד להצביע על כל פריט שנמנה פעם אחת בלבד, מבלי לדלג על פריטים, ולהתאים בין שם המספר לבין הפריט. על מנת לבצע היטב תהליך של מניה הילד נדרש לשלוט ברצף המספרים ולהבינו. עליו לערוך התאמה בין שם המספר לבין הפריט, תוך הבנה שעליו למנות את כל הפריטים, ובעיקר – להבין ששם המספר האחרון מייצג את כמות כל הפריטים שנמנו. הילד נדרש לקואורדינציה טובה המאפשרת לו לגעת רק פעם אחת בלבד בכל אחד מהפריטים הנמנים.\n          </p>\n          <p>\n              תהליך הספירה מתחיל בגיל צעיר מאד. ובהחלט ניתן לפגוש ילדים כבני שנתיים (ממש כמו עדי) המסוגלת לדקלם את שמות המספרים ברצף הנכון. ילד בעל יכולת זיכרון טובה מסוגל ללמוד את רצף המספרים ממש כמו שהוא לומד שירים או דקלומים.\n          </p>\n          <p>\n              לעומת זאת, המניה קשה יותר, ודורשת יכולות קוגניטיביות (חשיבה) ויכולות מוטוריות ההולכות ומבשילות סביב גיל 4-5 שנים. ואכן, בגיל צעיר מרבית הילדים מתקשים למנות. הם טועים טעויות הנובעות מהקושי להבחין ולהפריד בין פריטים שכבר נמנו, לבין פריטים שטרם נמנו. הם מדלגים על פריטים או מונים את אותו פריט כמה וכמה פעמים. יכולת המניה מבשילה סביב גיל 5 שנים, אז הילד אמור למנות בהצלחה סדרה של פריטים. בגיל 6, גיל הכניסה לכיתה א`, הילד אמור להצליח למנות 10 חפצים או יותר, המסודרים במרחב באופנים שונים.\n          </p>\n          <p>\n              שני גורמים מרכזיים משפיעים על דרגת הקושי של המניה. הראשון הוא אופן ארגון החפצים הנמנים במרחב, כאשר מניה מסודרת (בשורה, בטור או בתבנית) היא הקלה ביותר, מניה בתפזורת מהווה דרגת ביניים, ומניה במעגל נחשבת קשה ביותר (כאן קשה לזכור היכן התחלנו למנות, ואילו פריטים כבר נמנו). הגורם השני המשפיע על קושי המניה הוא כמות החפצים הנמנים. ככל שכמותם עולה, כך רמת הקושי של המנייה עולה.\n          </p>\n          <p>\n              כיצד ניתן לשפר את יכולת הספירה, ובעיקר את יכולת המניה?\n          </p>\n          <p>\n              הסביבה הטבעית שלנו מזמנת הזדמנויות אינ-סופיות ללמידת הספירה, וניתן לתרגל עם הפעוט את רצף המספרים בכל רגע – לספור ביחד את האצבעות (\"עשר אצבעות לי יש..\"), את הבובות שעל המדף, את הספרים, את הדמויות בתמונה, את הצעדים מהרכב ועד הכניסה לגן, את המדרגות המובילות לבית, את הסוכריות שעל העוגה ועוד ועוד. את הילדים המבוגרים יותר ניתן לשאול מפורשות \"כמה יש כאן?\" – ולוודא שהם מונים כנדרש, ועונים בשם המספר המתאים.\n          </p>\n          <p>\n              בנוסף ללמידה ה\"סביבתית\" הזו, קיימים לא מעט משחקים ועזרים דידקטיים ללימוד המספרים ורצף המספרים (כגון פאזלים בהם יש להתאים חלק ובו הספרה המתאימה לחלק ובו מספר פריטים תואם).\n          </p>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">סגירה</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "\n<div dir =\"rtl\" class=\"jumbotron\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <h1 class=\"display-4\">משחק ספירה</h1>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <img src=\"../../../assets/images/Numbers.png\" class=\"img-fluid imagesizing\">\n    </div>\n    <div class=\"row mt-3\">\n        <p class=\"lead\">התאמת סיפרה לכמות הפריטים המופיעים בתמונה.</p>\n\n    </div>\n    <div class=\"row mt-3\">\n      <!-- Button trigger modal -->\n      <button dir=\"rtl\" type=\"button\" class=\"btn btn-outline-info\" data-toggle=\"modal\" data-target=\"#aboutCountingModal\">\n          למידע נוסף על ספירה ומניה\n      </button>\n    </div>\n    <hr class=\"my-4\">\n    <div class=\"row\">\n        <a routerLink='/counting/1' class=\"btn btn-primary btn-lg\" role=\"button\">התחלת משחק</a>\n    </div>\n  </div>\n</div>\n\n\n  <!-- Modal -->\n  <div dir=\"rtl\" class=\"modal fade\" id=\"aboutCountingModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLongTitle\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">ספירה ומניה / ד\"ר מיכל איכט</h5>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <p>\n              ספירה היא היכולת לנקוב בשם המספרים ברצף הנכון (קדימה או אחורה). לצורך ספירה הילד צריך לדעת את שמות המספרים ואת הרצף שלהם בצורה אוטומטית, ולהצליח לשלוף את שמות המספרים בצורה מדויקת.\n          </p>\n          <p>\n              לעומת זאת, מניה היא יכולת מורכבת יותר – זו היכולת להתאים בין הספירה (שם המספר) לבין כמות הפריטים הנספרים. היא דורשת מן הילד להצביע על כל פריט שנמנה פעם אחת בלבד, מבלי לדלג על פריטים, ולהתאים בין שם המספר לבין הפריט. על מנת לבצע היטב תהליך של מניה הילד נדרש לשלוט ברצף המספרים ולהבינו. עליו לערוך התאמה בין שם המספר לבין הפריט, תוך הבנה שעליו למנות את כל הפריטים, ובעיקר – להבין ששם המספר האחרון מייצג את כמות כל הפריטים שנמנו. הילד נדרש לקואורדינציה טובה המאפשרת לו לגעת רק פעם אחת בלבד בכל אחד מהפריטים הנמנים.\n          </p>\n          <p>\n              תהליך הספירה מתחיל בגיל צעיר מאד. ובהחלט ניתן לפגוש ילדים כבני שנתיים (ממש כמו עדי) המסוגלת לדקלם את שמות המספרים ברצף הנכון. ילד בעל יכולת זיכרון טובה מסוגל ללמוד את רצף המספרים ממש כמו שהוא לומד שירים או דקלומים.\n          </p>\n          <p>\n              לעומת זאת, המניה קשה יותר, ודורשת יכולות קוגניטיביות (חשיבה) ויכולות מוטוריות ההולכות ומבשילות סביב גיל 4-5 שנים. ואכן, בגיל צעיר מרבית הילדים מתקשים למנות. הם טועים טעויות הנובעות מהקושי להבחין ולהפריד בין פריטים שכבר נמנו, לבין פריטים שטרם נמנו. הם מדלגים על פריטים או מונים את אותו פריט כמה וכמה פעמים. יכולת המניה מבשילה סביב גיל 5 שנים, אז הילד אמור למנות בהצלחה סדרה של פריטים. בגיל 6, גיל הכניסה לכיתה א`, הילד אמור להצליח למנות 10 חפצים או יותר, המסודרים במרחב באופנים שונים.\n          </p>\n          <p>\n              שני גורמים מרכזיים משפיעים על דרגת הקושי של המניה. הראשון הוא אופן ארגון החפצים הנמנים במרחב, כאשר מניה מסודרת (בשורה, בטור או בתבנית) היא הקלה ביותר, מניה בתפזורת מהווה דרגת ביניים, ומניה במעגל נחשבת קשה ביותר (כאן קשה לזכור היכן התחלנו למנות, ואילו פריטים כבר נמנו). הגורם השני המשפיע על קושי המניה הוא כמות החפצים הנמנים. ככל שכמותם עולה, כך רמת הקושי של המנייה עולה.\n          </p>\n          <p>\n              כיצד ניתן לשפר את יכולת הספירה, ובעיקר את יכולת המניה?\n          </p>\n          <p>\n              הסביבה הטבעית שלנו מזמנת הזדמנויות אינ-סופיות ללמידת הספירה, וניתן לתרגל עם הפעוט את רצף המספרים בכל רגע – לספור ביחד את האצבעות (\"עשר אצבעות לי יש..\"), את הבובות שעל המדף, את הספרים, את הדמויות בתמונה, את הצעדים מהרכב ועד הכניסה לגן, את המדרגות המובילות לבית, את הסוכריות שעל העוגה ועוד ועוד. את הילדים המבוגרים יותר ניתן לשאול מפורשות \"כמה יש כאן?\" – ולוודא שהם מונים כנדרש, ועונים בשם המספר המתאים.\n          </p>\n          <p>\n              בנוסף ללמידה ה\"סביבתית\" הזו, קיימים לא מעט משחקים ועזרים דידקטיים ללימוד המספרים ורצף המספרים (כגון פאזלים בהם יש להתאים חלק ובו הספרה המתאימה לחלק ובו מספר פריטים תואם).\n          </p>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">סגירה</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -469,6 +482,7 @@ var CountingComponent = /** @class */ (function () {
         if (this.countingDataToDisplay.answer === selectedNumber) {
             // good asnwer
             this.answerFeedbackService.displayAnswerFeedback(true);
+            this.answerFeedbackService.playSound(true);
             var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(1500);
             var abc = source.subscribe(function (val) {
                 if (!_this.isItTheLastPic()) {
@@ -483,6 +497,7 @@ var CountingComponent = /** @class */ (function () {
             // wrong answer
             // this.snackBar.open('נסו שוב');
             this.answerFeedbackService.displayAnswerFeedback(false);
+            this.answerFeedbackService.playSound(false);
         }
     };
     CountingComponent.prototype.loadMockDada = function () {
@@ -894,6 +909,7 @@ var LettersComponent = /** @class */ (function () {
         }
         if (this.isCompletelyAnswered()) {
             this.answerFeedback.displayAnswerFeedback(true);
+            this.answerFeedback.displayAnswerFeedback(true);
             var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(1500);
             var abc = source.subscribe(function (val) {
                 if (!_this.isItTheLastPic()) {
@@ -1180,12 +1196,19 @@ __webpack_require__.r(__webpack_exports__);
 var AnswerFeedbackService = /** @class */ (function () {
     function AnswerFeedbackService() {
         this.isAnswerCorrectObs = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.playSoundperInput = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
     }
     AnswerFeedbackService.prototype.displayAnswerFeedback = function (isCorrect) {
         this.isAnswerCorrectObs.next(isCorrect);
     };
+    AnswerFeedbackService.prototype.playSound = function (isCorrect) {
+        this.playSoundperInput.next(isCorrect);
+    };
     AnswerFeedbackService.prototype.getIsAnswerCorrectObs = function () {
         return this.isAnswerCorrectObs;
+    };
+    AnswerFeedbackService.prototype.getPlaySoundperInput = function () {
+        return this.playSoundperInput;
     };
     AnswerFeedbackService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
