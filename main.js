@@ -909,7 +909,7 @@ var LettersComponent = /** @class */ (function () {
         }
         if (this.isCompletelyAnswered()) {
             this.answerFeedback.displayAnswerFeedback(true);
-            this.answerFeedback.displayAnswerFeedback(true);
+            this.answerFeedback.playSound(true);
             var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(1500);
             var abc = source.subscribe(function (val) {
                 if (!_this.isItTheLastPic()) {
