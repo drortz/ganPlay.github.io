@@ -273,6 +273,7 @@ var AnswerFeedbackComponent = /** @class */ (function () {
         this.IncorrectMessage = 'נסו שוב';
         this.IncorrectImage = '../../../assets/images/smilyConfuzed.png';
         this.audioCorrectSrc = "../../../assets/sound/correct.mp3";
+        this.audio = new Audio();
         answerFeedbackService.getIsAnswerCorrectObs().subscribe(function (isAnswerCorrect) {
             if (isAnswerCorrect) {
                 _this.loadCorrectFeedback();
@@ -287,16 +288,15 @@ var AnswerFeedbackComponent = /** @class */ (function () {
             });
         });
         answerFeedbackService.getPlaySoundperInput().subscribe(function (isAnswerCorrect) {
-            var audio = new Audio();
             if (isAnswerCorrect) {
                 //play correct sound
-                audio.src = _this.audioCorrectSrc;
+                _this.audio.src = _this.audioCorrectSrc;
             }
             else {
                 //play incorrect sound
             }
-            audio.load();
-            audio.play();
+            _this.audio.load();
+            _this.audio.play();
         });
     }
     AnswerFeedbackComponent.prototype.loadCorrectFeedback = function () {
@@ -396,7 +396,7 @@ var CountingIntroComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0.2;\r\n}\r\n\r\n.nextback{\r\n  width: 90px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.nextback:hover{\r\n  /* transform: scale(1.2); */\r\n  /* filter: blur(5px); */\r\n}\r\n\r\n.nextback:active{\r\n  /* filter: blur(5px); */\r\n  -webkit-transform: scale(1.3);\r\n          transform: scale(1.3);\r\n}\r\n\r\n@media screen and (max-width: 994px) {\r\n  .nextback{\r\n    width: 70px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n  .nextback{\r\n    width: 45px;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvY291bnRpbmcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSwyQkFBMkI7RUFDM0IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLDZCQUFxQjtVQUFyQixxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRTtJQUNFLFdBQVc7RUFDYjtBQUNGOztBQUdBO0VBQ0U7SUFDRSxXQUFXO0VBQ2I7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2NvdW50aW5nL2NvdW50aW5nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXBwZWFyLWFzLWRpc2FibGV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbiAgb3BhY2l0eTogMC4yO1xyXG59XHJcblxyXG4ubmV4dGJhY2t7XHJcbiAgd2lkdGg6IDkwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5uZXh0YmFjazpob3ZlcntcclxuICAvKiB0cmFuc2Zvcm06IHNjYWxlKDEuMik7ICovXHJcbiAgLyogZmlsdGVyOiBibHVyKDVweCk7ICovXHJcbn1cclxuXHJcbi5uZXh0YmFjazphY3RpdmV7XHJcbiAgLyogZmlsdGVyOiBibHVyKDVweCk7ICovXHJcbiAgdHJhbnNmb3JtOiBzY2FsZSgxLjMpO1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTRweCkge1xyXG4gIC5uZXh0YmFja3tcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gIH1cclxufVxyXG5cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KSB7XHJcbiAgLm5leHRiYWNre1xyXG4gICAgd2lkdGg6IDQ1cHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"
+module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0.2;\r\n}\r\n\r\n.nextback{\r\n  width: 90px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.nextback:hover {\r\n  /* transform: scale(1.2); */\r\n  /* filter: blur(5px); */\r\n}\r\n\r\n.nextback:active {\r\n  /* filter: blur(5px); */\r\n  -webkit-transform: scale(1.3);\r\n          transform: scale(1.3);\r\n}\r\n\r\n@media screen and (max-width: 994px) {\r\n  .nextback{\r\n    width: 70px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n  .nextback{\r\n    width: 45px;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvY291bnRpbmcvY291bnRpbmcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSwyQkFBMkI7RUFDM0IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLDZCQUFxQjtVQUFyQixxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRTtJQUNFLFdBQVc7RUFDYjtBQUNGOztBQUdBO0VBQ0U7SUFDRSxXQUFXO0VBQ2I7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2NvdW50aW5nL2NvdW50aW5nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXBwZWFyLWFzLWRpc2FibGV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbiAgb3BhY2l0eTogMC4yO1xyXG59XHJcblxyXG4ubmV4dGJhY2t7XHJcbiAgd2lkdGg6IDkwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5uZXh0YmFjazpob3ZlciB7XHJcbiAgLyogdHJhbnNmb3JtOiBzY2FsZSgxLjIpOyAqL1xyXG4gIC8qIGZpbHRlcjogYmx1cig1cHgpOyAqL1xyXG59XHJcblxyXG4ubmV4dGJhY2s6YWN0aXZlIHtcclxuICAvKiBmaWx0ZXI6IGJsdXIoNXB4KTsgKi9cclxuICB0cmFuc2Zvcm06IHNjYWxlKDEuMyk7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDk5NHB4KSB7XHJcbiAgLm5leHRiYWNre1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgfVxyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzYwcHgpIHtcclxuICAubmV4dGJhY2t7XHJcbiAgICB3aWR0aDogNDVweDtcclxuICB9XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -407,7 +407,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"container pt-2 pb-2 mb-3\" style=\"background: rgb(204, 226, 248)\">\n  <div class=\"row \" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\">\n          <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n          <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n        </p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\">\n            <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n          <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n        </p>\n    </div>\n  </div>\n</div>\n\n\n<div class=\"container\" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4 *ngIf=\"isLoaded\" >כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image *ngIf=\"isLoaded\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n\n"
+module.exports = "\n\n<div *ngIf=\"isLoaded\" class=\"container pt-2 pb-2 mb-3\">\n  <div class=\"row \" dir='rtl'>\n    <div class=\"col\">\n        <p class=\"text-left\">\n          <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n          <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n        </p>\n    </div>\n    <div class=\"col\">\n        <p class=\"text-right\">\n            <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n          <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n        </p>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"isLoaded\" class=\"container\" dir=\"rtl\">\n  <div class=\"row justify-content-center\">\n    <h4>כמה {{countingDataToDisplay.subject}} יש בתמונה ?</h4>\n  </div>\n</div>\n\n<app-image  (loaded)=\"imageLoaded($event)\" [imageUrl]=\"countingDataToDisplay.imageUrl\"></app-image>\n<app-numbers *ngIf=\"isLoaded\" (selectedNumber)=\"onSelectedNumber($event)\" ></app-numbers>\n<app-answer-feedback *ngIf=\"isLoaded\" ></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n\n"
 
 /***/ }),
 
@@ -453,14 +453,13 @@ var CountingComponent = /** @class */ (function () {
             _this.idToDisplay = val.id;
             _this.ngOnInit();
         });
-        this.loadSpinner.isDisplayLoading(true);
         this.countingService.getCountingData().subscribe(function (value) {
             _this.setCountingData(value);
             _this.loadCurrentPage();
-            _this.loadSpinner.isDisplayLoading(false);
         });
     }
     CountingComponent.prototype.ngOnInit = function () {
+        this.loadSpinner.isDisplayLoading(true);
         this.loadCurrentPage();
     };
     CountingComponent.prototype.setCountingData = function (data) {
@@ -475,7 +474,6 @@ var CountingComponent = /** @class */ (function () {
         if (this.countingDataToDisplay === undefined) {
             this.countingDataToDisplay = this.countingData[this.countingData.length - 1];
         }
-        this.isLoaded = true;
     };
     CountingComponent.prototype.onSelectedNumber = function (selectedNumber) {
         var _this = this;
@@ -497,7 +495,7 @@ var CountingComponent = /** @class */ (function () {
             // wrong answer
             // this.snackBar.open('נסו שוב');
             this.answerFeedbackService.displayAnswerFeedback(false);
-            this.answerFeedbackService.playSound(false);
+            // this.answerFeedbackService.playSound(false);
         }
     };
     CountingComponent.prototype.loadMockDada = function () {
@@ -528,6 +526,10 @@ var CountingComponent = /** @class */ (function () {
     };
     CountingComponent.prototype.disableBackButton = function () {
         $('backbutton').button('toggle');
+    };
+    CountingComponent.prototype.imageLoaded = function (wasLoaded) {
+        this.isLoaded = wasLoaded;
+        this.loadSpinner.isDisplayLoading(false);
     };
     CountingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -567,7 +569,7 @@ module.exports = ".imagesize{\r\n  height: 50%;\r\n  width: 50%;\r\n}\r\n\r\n/*#
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mb-5 mt-2\">\n  <img src={{imageUrl}} class=\"rounded mx-auto d-block img-fluid shadow imagesize\" alt=\"Responsive image\">\n</div>\n\n"
+module.exports = "<div class=\"container mb-5 mt-2\">\n  <img src={{imageUrl}} (load)=\"imgLoaded($event)\" class=\"rounded mx-auto d-block img-fluid shadow imagesize\" alt=\"Responsive image\">\n</div>\n\n"
 
 /***/ }),
 
@@ -587,13 +589,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var ImageComponent = /** @class */ (function () {
     function ImageComponent() {
+        this.loaded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     ImageComponent.prototype.ngOnInit = function () {
+    };
+    ImageComponent.prototype.imgLoaded = function (event) {
+        this.loaded.emit(true);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], ImageComponent.prototype, "imageUrl", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ImageComponent.prototype, "loaded", void 0);
     ImageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-image',
@@ -804,7 +814,7 @@ var LettersIntroComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0.2;\r\n}\r\n\r\n.nextback{\r\n  width: 90px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.correctimage {\r\n  border: solid 5px #ccc;\r\n  border-color: rgb(6, 240, 6) ;\r\n}\r\n\r\n.nextback:hover{\r\n  /* transform: scale(1.2); */\r\n  /* filter: blur(5px); */\r\n}\r\n\r\n.nextback:active{\r\n  /* filter: blur(5px); */\r\n  -webkit-transform: scale(1.3);\r\n          transform: scale(1.3);\r\n}\r\n\r\n@media screen and (max-width: 994px) {\r\n  .nextback{\r\n    width: 70px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n  .nextback{\r\n    width: 45px;\r\n  }\r\n}\r\n\r\n.example-list {\r\n  width: 1000px;\r\n  max-width: 100%;\r\n  border: solid 1px black;\r\n  min-height: 60px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  background: white;\r\n  border-radius: 4px;\r\n  overflow: hidden;\r\n\r\n}\r\n\r\n.example-list-correct {\r\n  width: 1000px;\r\n  max-width: 100%;\r\n  border: solid 1px #ccc;\r\n  min-height: 60px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  background: rgb(69, 255, 100);\r\n  border-radius: 4px;\r\n  overflow: hidden;\r\n\r\n}\r\n\r\n.example-list :hover{\r\n  background-color: cornflowerblue;\r\n}\r\n\r\n.example-box {\r\n  padding: 15px 3px;\r\n  border-right: solid 1px black;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  box-sizing: border-box;\r\n  cursor: move;\r\n  background: white;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n  flex-grow: 1;\r\n  flex-basis: 0;\r\n  justify-content: center;\r\n}\r\n\r\n.example-box-correct {\r\n  padding: 15px 4px;\r\n  border-right: solid 1px #ccc;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  box-sizing: border-box;\r\n  cursor: move;\r\n  background: rgb(69, 255, 100);\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n  flex-grow: 1;\r\n  flex-basis: 0;\r\n  justify-content: center;\r\n}\r\n\r\n.cdk-drag-preview {\r\n  box-sizing: border-box;\r\n  border-radius: 4px;\r\n  background-color: rgb(127, 168, 243);\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n              0 8px 10px 1px rgba(0, 0, 0, 0.14),\r\n              0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n\r\n}\r\n\r\n.cdk-drag-placeholder {\r\n  opacity: 0;\r\n}\r\n\r\n.cdk-drag-animating {\r\n  transition: -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n}\r\n\r\n.example-box:last-child {\r\n  border: none;\r\n}\r\n\r\n.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {\r\n  transition: -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvbGV0dGVycy9sZXR0ZXJzL2xldHRlcnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsNkJBQTZCO0FBQy9COztBQUVBO0VBQ0UsMkJBQTJCO0VBQzNCLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2Qiw2QkFBcUI7VUFBckIscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0U7SUFDRSxXQUFXO0VBQ2I7QUFDRjs7QUFHQTtFQUNFO0lBQ0UsV0FBVztFQUNiO0FBQ0Y7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsZUFBZTtFQUNmLHVCQUF1QjtFQUN2QixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGdCQUFnQjs7QUFFbEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsZUFBZTtFQUNmLHNCQUFzQjtFQUN0QixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQiw2QkFBNkI7RUFDN0Isa0JBQWtCO0VBQ2xCLGdCQUFnQjs7QUFFbEI7O0FBR0E7RUFDRSxnQ0FBZ0M7QUFDbEM7O0FBSUE7RUFDRSxpQkFBaUI7RUFDakIsNkJBQTZCO0VBQzdCLDBCQUEwQjtFQUMxQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiw4QkFBOEI7RUFDOUIsc0JBQXNCO0VBQ3RCLFlBQVk7RUFDWixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQiw0QkFBNEI7RUFDNUIsMEJBQTBCO0VBQzFCLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsbUJBQW1CO0VBQ25CLDhCQUE4QjtFQUM5QixzQkFBc0I7RUFDdEIsWUFBWTtFQUNaLDZCQUE2QjtFQUM3QixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixvQ0FBb0M7RUFDcEM7O2dEQUU4Qzs7QUFFaEQ7O0FBRUE7RUFDRSxVQUFVO0FBQ1o7O0FBRUE7RUFDRSw4REFBc0Q7RUFBdEQsc0RBQXNEO0VBQXRELDBHQUFzRDtBQUN4RDs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLDhEQUFzRDtFQUF0RCxzREFBc0Q7RUFBdEQsMEdBQXNEO0FBQ3hEIiwiZmlsZSI6InNyYy9hcHAvZ2FtZXMvbGV0dGVycy9sZXR0ZXJzL2xldHRlcnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hcHBlYXItYXMtZGlzYWJsZXtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxuICBvcGFjaXR5OiAwLjI7XHJcbn1cclxuXHJcbi5uZXh0YmFja3tcclxuICB3aWR0aDogOTBweDtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmNvcnJlY3RpbWFnZSB7XHJcbiAgYm9yZGVyOiBzb2xpZCA1cHggI2NjYztcclxuICBib3JkZXItY29sb3I6IHJnYig2LCAyNDAsIDYpIDtcclxufVxyXG5cclxuLm5leHRiYWNrOmhvdmVye1xyXG4gIC8qIHRyYW5zZm9ybTogc2NhbGUoMS4yKTsgKi9cclxuICAvKiBmaWx0ZXI6IGJsdXIoNXB4KTsgKi9cclxufVxyXG5cclxuLm5leHRiYWNrOmFjdGl2ZXtcclxuICAvKiBmaWx0ZXI6IGJsdXIoNXB4KTsgKi9cclxuICB0cmFuc2Zvcm06IHNjYWxlKDEuMyk7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDk5NHB4KSB7XHJcbiAgLm5leHRiYWNre1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgfVxyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzYwcHgpIHtcclxuICAubmV4dGJhY2t7XHJcbiAgICB3aWR0aDogNDVweDtcclxuICB9XHJcbn1cclxuXHJcbi5leGFtcGxlLWxpc3Qge1xyXG4gIHdpZHRoOiAxMDAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlcjogc29saWQgMXB4IGJsYWNrO1xyXG4gIG1pbi1oZWlnaHQ6IDYwcHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG5cclxufVxyXG5cclxuLmV4YW1wbGUtbGlzdC1jb3JyZWN0IHtcclxuICB3aWR0aDogMTAwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBib3JkZXI6IHNvbGlkIDFweCAjY2NjO1xyXG4gIG1pbi1oZWlnaHQ6IDYwcHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGJhY2tncm91bmQ6IHJnYig2OSwgMjU1LCAxMDApO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG5cclxufVxyXG5cclxuXHJcbi5leGFtcGxlLWxpc3QgOmhvdmVye1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGNvcm5mbG93ZXJibHVlO1xyXG59XHJcblxyXG5cclxuXHJcbi5leGFtcGxlLWJveCB7XHJcbiAgcGFkZGluZzogMTVweCAzcHg7XHJcbiAgYm9yZGVyLXJpZ2h0OiBzb2xpZCAxcHggYmxhY2s7XHJcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgY3Vyc29yOiBtb3ZlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGZvbnQtc2l6ZTogMjhweDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmV4YW1wbGUtYm94LWNvcnJlY3Qge1xyXG4gIHBhZGRpbmc6IDE1cHggNHB4O1xyXG4gIGJvcmRlci1yaWdodDogc29saWQgMXB4ICNjY2M7XHJcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgY3Vyc29yOiBtb3ZlO1xyXG4gIGJhY2tncm91bmQ6IHJnYig2OSwgMjU1LCAxMDApO1xyXG4gIGZvbnQtc2l6ZTogMjhweDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmNkay1kcmFnLXByZXZpZXcge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigxMjcsIDE2OCwgMjQzKTtcclxuICBib3gtc2hhZG93OiAwIDVweCA1cHggLTNweCByZ2JhKDAsIDAsIDAsIDAuMiksXHJcbiAgICAgICAgICAgICAgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSxcclxuICAgICAgICAgICAgICAwIDNweCAxNHB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMTIpO1xyXG5cclxufVxyXG5cclxuLmNkay1kcmFnLXBsYWNlaG9sZGVyIHtcclxuICBvcGFjaXR5OiAwO1xyXG59XHJcblxyXG4uY2RrLWRyYWctYW5pbWF0aW5nIHtcclxuICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMjUwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XHJcbn1cclxuXHJcbi5leGFtcGxlLWJveDpsYXN0LWNoaWxkIHtcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuXHJcbi5leGFtcGxlLWxpc3QuY2RrLWRyb3AtbGlzdC1kcmFnZ2luZyAuZXhhbXBsZS1ib3g6bm90KC5jZGstZHJhZy1wbGFjZWhvbGRlcikge1xyXG4gIHRyYW5zaXRpb246IHRyYW5zZm9ybSAyNTBtcyBjdWJpYy1iZXppZXIoMCwgMCwgMC4yLCAxKTtcclxufVxyXG4iXX0= */"
+module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0.2;\r\n}\r\n\r\n.nextback{\r\n  width: 90px;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.correctimage {\r\n  border: solid 5px #ccc;\r\n  border-color: rgb(6, 240, 6) ;\r\n}\r\n\r\n.nextback:hover{\r\n  /* transform: scale(1.2); */\r\n  /* filter: blur(5px); */\r\n}\r\n\r\n.nextback:active{\r\n  /* filter: blur(5px); */\r\n  -webkit-transform: scale(1.3);\r\n          transform: scale(1.3);\r\n}\r\n\r\nimg {\r\n  max-height: 400px;\r\n  height: auto;\r\n  width: auto\\9; /* ie8 */\r\n}\r\n\r\n@media screen and (max-width: 994px) {\r\n  .nextback{\r\n    width: 70px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n  .nextback{\r\n    width: 45px;\r\n  }\r\n}\r\n\r\n.example-list {\r\n  width: 1000px;\r\n  max-width: 100%;\r\n  border: solid 1px black;\r\n  min-height: 60px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  background: white;\r\n  border-radius: 4px;\r\n  overflow: hidden;\r\n\r\n}\r\n\r\n.example-list-correct {\r\n  width: 1000px;\r\n  max-width: 100%;\r\n  border: solid 1px #ccc;\r\n  min-height: 60px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  background: rgb(69, 255, 100);\r\n  border-radius: 4px;\r\n  overflow: hidden;\r\n\r\n}\r\n\r\n.example-list :hover{\r\n  background-color: cornflowerblue;\r\n}\r\n\r\n.example-box {\r\n  padding: 15px 3px;\r\n  border-right: solid 1px black;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  box-sizing: border-box;\r\n  cursor: move;\r\n  background: white;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n  flex-grow: 1;\r\n  flex-basis: 0;\r\n  justify-content: center;\r\n}\r\n\r\n.example-box-correct {\r\n  padding: 15px 4px;\r\n  border-right: solid 1px #ccc;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  box-sizing: border-box;\r\n  cursor: move;\r\n  background: rgb(69, 255, 100);\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n  flex-grow: 1;\r\n  flex-basis: 0;\r\n  justify-content: center;\r\n}\r\n\r\n.cdk-drag-preview {\r\n  box-sizing: border-box;\r\n  border-radius: 4px;\r\n  background-color: rgb(127, 168, 243);\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n              0 8px 10px 1px rgba(0, 0, 0, 0.14),\r\n              0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n\r\n}\r\n\r\n.cdk-drag-placeholder {\r\n  opacity: 0;\r\n}\r\n\r\n.cdk-drag-animating {\r\n  transition: -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n}\r\n\r\n.example-box:last-child {\r\n  border: none;\r\n}\r\n\r\n.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {\r\n  transition: -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0, 0, 0.2, 1);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZXMvbGV0dGVycy9sZXR0ZXJzL2xldHRlcnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsNkJBQTZCO0FBQy9COztBQUVBO0VBQ0UsMkJBQTJCO0VBQzNCLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2Qiw2QkFBcUI7VUFBckIscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixhQUFhLEVBQUUsUUFBUTtBQUN6Qjs7QUFFQTtFQUNFO0lBQ0UsV0FBVztFQUNiO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLFdBQVc7RUFDYjtBQUNGOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixnQkFBZ0I7O0FBRWxCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZixzQkFBc0I7RUFDdEIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsNkJBQTZCO0VBQzdCLGtCQUFrQjtFQUNsQixnQkFBZ0I7O0FBRWxCOztBQUdBO0VBQ0UsZ0NBQWdDO0FBQ2xDOztBQUlBO0VBQ0UsaUJBQWlCO0VBQ2pCLDZCQUE2QjtFQUM3QiwwQkFBMEI7RUFDMUIsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsOEJBQThCO0VBQzlCLHNCQUFzQjtFQUN0QixZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsNEJBQTRCO0VBQzVCLDBCQUEwQjtFQUMxQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiw4QkFBOEI7RUFDOUIsc0JBQXNCO0VBQ3RCLFlBQVk7RUFDWiw2QkFBNkI7RUFDN0IsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsb0NBQW9DO0VBQ3BDOztnREFFOEM7O0FBRWhEOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsOERBQXNEO0VBQXRELHNEQUFzRDtFQUF0RCwwR0FBc0Q7QUFDeEQ7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSw4REFBc0Q7RUFBdEQsc0RBQXNEO0VBQXRELDBHQUFzRDtBQUN4RCIsImZpbGUiOiJzcmMvYXBwL2dhbWVzL2xldHRlcnMvbGV0dGVycy9sZXR0ZXJzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXBwZWFyLWFzLWRpc2FibGV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbiAgb3BhY2l0eTogMC4yO1xyXG59XHJcblxyXG4ubmV4dGJhY2t7XHJcbiAgd2lkdGg6IDkwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5jb3JyZWN0aW1hZ2Uge1xyXG4gIGJvcmRlcjogc29saWQgNXB4ICNjY2M7XHJcbiAgYm9yZGVyLWNvbG9yOiByZ2IoNiwgMjQwLCA2KSA7XHJcbn1cclxuXHJcbi5uZXh0YmFjazpob3ZlcntcclxuICAvKiB0cmFuc2Zvcm06IHNjYWxlKDEuMik7ICovXHJcbiAgLyogZmlsdGVyOiBibHVyKDVweCk7ICovXHJcbn1cclxuXHJcbi5uZXh0YmFjazphY3RpdmV7XHJcbiAgLyogZmlsdGVyOiBibHVyKDVweCk7ICovXHJcbiAgdHJhbnNmb3JtOiBzY2FsZSgxLjMpO1xyXG59XHJcblxyXG5pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDQwMHB4O1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogYXV0b1xcOTsgLyogaWU4ICovXHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDk5NHB4KSB7XHJcbiAgLm5leHRiYWNre1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjBweCkge1xyXG4gIC5uZXh0YmFja3tcclxuICAgIHdpZHRoOiA0NXB4O1xyXG4gIH1cclxufVxyXG5cclxuLmV4YW1wbGUtbGlzdCB7XHJcbiAgd2lkdGg6IDEwMDBweDtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgYm9yZGVyOiBzb2xpZCAxcHggYmxhY2s7XHJcbiAgbWluLWhlaWdodDogNjBweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcblxyXG59XHJcblxyXG4uZXhhbXBsZS1saXN0LWNvcnJlY3Qge1xyXG4gIHdpZHRoOiAxMDAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XHJcbiAgbWluLWhlaWdodDogNjBweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgYmFja2dyb3VuZDogcmdiKDY5LCAyNTUsIDEwMCk7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcblxyXG59XHJcblxyXG5cclxuLmV4YW1wbGUtbGlzdCA6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogY29ybmZsb3dlcmJsdWU7XHJcbn1cclxuXHJcblxyXG5cclxuLmV4YW1wbGUtYm94IHtcclxuICBwYWRkaW5nOiAxNXB4IDNweDtcclxuICBib3JkZXItcmlnaHQ6IHNvbGlkIDFweCBibGFjaztcclxuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjg3KTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBjdXJzb3I6IG1vdmU7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgZm9udC1zaXplOiAyOHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uZXhhbXBsZS1ib3gtY29ycmVjdCB7XHJcbiAgcGFkZGluZzogMTVweCA0cHg7XHJcbiAgYm9yZGVyLXJpZ2h0OiBzb2xpZCAxcHggI2NjYztcclxuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjg3KTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBjdXJzb3I6IG1vdmU7XHJcbiAgYmFja2dyb3VuZDogcmdiKDY5LCAyNTUsIDEwMCk7XHJcbiAgZm9udC1zaXplOiAyOHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uY2RrLWRyYWctcHJldmlldyB7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDEyNywgMTY4LCAyNDMpO1xyXG4gIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSxcclxuICAgICAgICAgICAgICAwIDhweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMTQpLFxyXG4gICAgICAgICAgICAgIDAgM3B4IDE0cHggMnB4IHJnYmEoMCwgMCwgMCwgMC4xMik7XHJcblxyXG59XHJcblxyXG4uY2RrLWRyYWctcGxhY2Vob2xkZXIge1xyXG4gIG9wYWNpdHk6IDA7XHJcbn1cclxuXHJcbi5jZGstZHJhZy1hbmltYXRpbmcge1xyXG4gIHRyYW5zaXRpb246IHRyYW5zZm9ybSAyNTBtcyBjdWJpYy1iZXppZXIoMCwgMCwgMC4yLCAxKTtcclxufVxyXG5cclxuLmV4YW1wbGUtYm94Omxhc3QtY2hpbGQge1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG5cclxuLmV4YW1wbGUtbGlzdC5jZGstZHJvcC1saXN0LWRyYWdnaW5nIC5leGFtcGxlLWJveDpub3QoLmNkay1kcmFnLXBsYWNlaG9sZGVyKSB7XHJcbiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDI1MG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -815,7 +825,7 @@ module.exports = ".appear-as-disable{\r\n  pointer-events: none;\r\n  opacity: 0
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"isLoaded\" class=\"container pt-2 pb-2 mb-3\" style=\"background: rgb(204, 226, 248)\">\n    <div class=\"row \" dir='rtl'>\n      <div class=\"col\">\n          <p class=\"text-left\">\n            <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n            <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n          </p>\n      </div>\n      <div class=\"col\">\n          <p class=\"text-right\">\n              <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n            <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n          </p>\n      </div>\n    </div>\n</div>\n\n<div *ngIf=\"isLoaded\" class=\"container mt-5\">\n    <div class=\"row justify-content-center\" dir='rtl'>\n        <div class=\"col-3 align-self-center px-4\">\n          <p>אות פותחת</p>\n          <div cdkDropList id=\"firstLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateFirstLetter\" [cdkDropListData]=\"firstLetter\" (cdkDropListDropped)=\"drop($event)\">\n              <div [className]=\"isFirstLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of firstLetter\" cdkDrag>{{letter}}</div>\n          </div>\n        </div>\n        <div class=\"col-6 align-middle\">\n\n          <img src={{lettersDataToDisplay.imageUrl}} [className]=\"isCompletelyAnswered() ? 'rounded mx-auto d-block img-fluid shadow correctimage' : 'rounded mx-auto d-block img-fluid shadow'\" alt=\"Responsive image\">\n\n          <!-- <app-image  [imageUrl]=\"mockDataToDisplay.imageUrl\"></app-image> -->\n        </div>\n        <div class=\"col-3 align-self-center px-4\">\n            <p>אות סוגרת</p>\n            <div cdkDropList id=\"lastLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateLastLetter\" [cdkDropListData]=\"lastLetter\" (cdkDropListDropped)=\"drop($event)\">\n                <div [className]=\"isLastLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of lastLetter\" cdkDrag>{{letter}}</div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"container mt-5 pt-3 pb-3\" style=\"background: rgb(153, 187, 242)\">\n    <div class=\"example-container\">\n        <div id=\"src1\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src2\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters2\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters2\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src3\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters3\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters3\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n</div>\n\n<app-answer-feedback></app-answer-feedback>\n"
+module.exports = "<div *ngIf=\"isLoaded\" class=\"container pt-2 pb-2 mb-3\">\n    <div class=\"row \" dir='rtl'>\n      <div class=\"col\">\n          <p class=\"text-left\">\n            <!-- <button (click)=\"loadPrevPage()\" id=\"backbutton\" type=\"button \" class=\"btn btn-warning\" [disabled]=\"isItTheFirstPic()\">הקודם</button> -->\n            <img id=\"backImg\" src=\"../../../assets/images/back.png\" (click)=\"loadPrevPage()\" [className]=\"!this.isItTheFirstPic() ? 'rounded float-left nextback' : 'rounded float-left nextback appear-as-disable'\" alt=\"Responsive image\">\n          </p>\n      </div>\n      <div class=\"col\">\n          <p class=\"text-right\">\n              <img id=\"nextImg\" src=\"../../../assets/images/next.png\" (click)=\"loadNextPage()\" [className]=\"!this.isItTheLastPic() ? 'rounded float-right nextback' : 'rounded float-right nextback appear-as-disable'\" alt=\"Responsive image\">\n            <!-- <button (click)=\"loadNextPage()\" id=\"nextbutton\" type=\"button\" class=\"btn btn-warning\" [disabled]=\"isItTheLastPic()\">הבא</button> -->\n          </p>\n      </div>\n    </div>\n</div>\n\n<div class=\"container mt-5\">\n    <div class=\"row justify-content-center\" dir='rtl'>\n        <div *ngIf=\"isLoaded\" class=\"col-3 align-self-center px-4\">\n          <p>אות פותחת</p>\n          <div cdkDropList id=\"firstLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateFirstLetter\" [cdkDropListData]=\"firstLetter\" (cdkDropListDropped)=\"drop($event)\">\n              <div [className]=\"isFirstLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of firstLetter\" cdkDrag>{{letter}}</div>\n          </div>\n        </div>\n        <div class=\"col-6 align-middle\">\n\n\n        <img src={{lettersDataToDisplay.imageUrl}} (load)=\"onImgLoad()\" [className]=\"isCompletelyAnswered() ? 'rounded mx-auto d-block img-fluid shadow correctimage' : 'rounded mx-auto d-block img-fluid shadow'\" alt=\"Responsive image\">\n\n\n\n          <!-- <app-image  [imageUrl]=\"mockDataToDisplay.imageUrl\"></app-image> -->\n        </div>\n        <div *ngIf=\"isLoaded\" class=\"col-3 align-self-center px-4\">\n            <p>אות סוגרת</p>\n            <div cdkDropList id=\"lastLetter\" cdkDropListOrientation=\"horizontal\" class=\"example-list\" [cdkDropListEnterPredicate]=\"dynamicPredicateLastLetter\" [cdkDropListData]=\"lastLetter\" (cdkDropListDropped)=\"drop($event)\">\n                <div [className]=\"isLastLetterCorrect ? 'example-box-correct' : 'example-box'\" *ngFor=\"let letter of lastLetter\" cdkDrag>{{letter}}</div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<div *ngIf=\"isLoaded\" class=\"container mt-5 pt-3 pb-3\" style=\"background: rgb(153, 187, 242)\">\n    <div class=\"example-container\">\n        <div id=\"src1\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src2\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters2\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters2\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n    <div class=\"example-container\">\n        <div id=\"src3\" cdkDropList cdkDropListOrientation=\"horizontal\" [cdkDropListConnectedTo]=\"['firstLetter','lastLetter']\" [cdkDropListData]=\"letters3\" [cdkDropListEnterPredicate]=\"noReturnPredicate\" class=\"example-list\" (cdkDropListDropped)=\"drop($event)\">\n            <div class=\"example-box\" *ngFor=\"let letter of letters3\" cdkDrag>{{letter}}</div>\n        </div>\n    </div>\n</div>\n\n<app-answer-feedback></app-answer-feedback>\n<app-load-spinner></app-load-spinner>\n"
 
 /***/ }),
 
@@ -830,12 +840,14 @@ module.exports = "<div *ngIf=\"isLoaded\" class=\"container pt-2 pb-2 mb-3\" sty
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LettersComponent", function() { return LettersComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_http_letters_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../services/http/letters.service */ "./src/app/services/http/letters.service.ts");
-/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../services/load-spinner.service */ "./src/app/services/load-spinner.service.ts");
+/* harmony import */ var _services_http_letters_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../services/http/letters.service */ "./src/app/services/http/letters.service.ts");
+/* harmony import */ var _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../services/answer-feedback.service */ "./src/app/services/answer-feedback.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 
@@ -844,12 +856,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LettersComponent = /** @class */ (function () {
-    function LettersComponent(dragDrop, router, lettersService, answerFeedback, activeRoute) {
+    function LettersComponent(dragDrop, router, lettersService, answerFeedback, loadSpinner, activeRoute) {
         var _this = this;
         this.dragDrop = dragDrop;
         this.router = router;
         this.lettersService = lettersService;
         this.answerFeedback = answerFeedback;
+        this.loadSpinner = loadSpinner;
         this.activeRoute = activeRoute;
         this.letters = ['ט', 'ח', 'ז', 'ו', 'ה', 'ד', 'ג', 'ב', 'א'];
         this.letters2 = ['צ', 'פ', 'ע', 'ס', 'נ', 'מ', 'ל', 'כ', 'י'];
@@ -870,10 +883,11 @@ var LettersComponent = /** @class */ (function () {
         });
         this.lettersService.getLettersData().subscribe(function (value) {
             _this.setLettersData(value);
-            _this.loadCurrentPage();
+            _this.ngOnInit();
         });
     }
     LettersComponent.prototype.ngOnInit = function () {
+        this.loadSpinner.isDisplayLoading(true);
         this.loadCurrentPage();
     };
     LettersComponent.prototype.setLettersData = function (data) {
@@ -889,7 +903,6 @@ var LettersComponent = /** @class */ (function () {
             this.lettersDataToDisplay = this.lettersData[this.lettersData.length - 1];
         }
         this.clearFirstOrLastLetterCorrect();
-        this.isLoaded = true;
     };
     LettersComponent.prototype.loadMockData = function () {
         this.lettersData = [{ imageUrl: "https://extension.usu.edu/yardandgarden/ou-images/apples.png", firstLetter: 'ת', lastLetter: 'ח', id: '1' },
@@ -905,12 +918,12 @@ var LettersComponent = /** @class */ (function () {
             //   event.container.data,
             //   event.previousIndex,
             //   event.currentIndex);
-            Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__["copyArrayItem"])(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+            Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__["copyArrayItem"])(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
         }
         if (this.isCompletelyAnswered()) {
             this.answerFeedback.displayAnswerFeedback(true);
             this.answerFeedback.playSound(true);
-            var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["timer"])(1500);
+            var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["timer"])(1500);
             var abc = source.subscribe(function (val) {
                 if (!_this.isItTheLastPic()) {
                     _this.loadNextPage();
@@ -959,17 +972,22 @@ var LettersComponent = /** @class */ (function () {
         this.isFirstLetterCorrect = false;
         this.isLastLetterCorrect = false;
     };
+    LettersComponent.prototype.onImgLoad = function () {
+        this.isLoaded = true;
+        this.loadSpinner.isDisplayLoading(false);
+    };
     LettersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
             selector: 'app-letters',
             template: __webpack_require__(/*! ./letters.component.html */ "./src/app/games/letters/letters/letters.component.html"),
             styles: [__webpack_require__(/*! ./letters.component.css */ "./src/app/games/letters/letters/letters.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_4__["DragDropModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-            _services_http_letters_service__WEBPACK_IMPORTED_MODULE_1__["LettersService"],
-            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_2__["AnswerFeedbackService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__["DragDropModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _services_http_letters_service__WEBPACK_IMPORTED_MODULE_2__["LettersService"],
+            _services_answer_feedback_service__WEBPACK_IMPORTED_MODULE_3__["AnswerFeedbackService"],
+            _services_load_spinner_service__WEBPACK_IMPORTED_MODULE_1__["LoadSpinnerService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
     ], LettersComponent);
     return LettersComponent;
 }());
